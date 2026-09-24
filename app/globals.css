@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/*  Design tokens — Tailwind v4 CSS-first @theme                       */
+/*  Font tokens point at the next/font CSS variables set in layout.tsx */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #0b0b0c; /* dark base */
+  --color-ink-soft: #141416; /* raised dark surface */
+  --color-paper: #ededea; /* light section base */
+  --color-paper-soft: #dededa;
+  --color-accent: #c8f751; /* acid lime — the one accent */
+
+  --color-muted-dark: rgba(237, 237, 234, 0.55); /* muted text on dark */
+  --color-muted-light: rgba(11, 11, 12, 0.55); /* muted text on light */
+
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-geist), var(--font-jetbrains), monospace;
+}
+
+/* Per-section theme variables, flipped by [data-theme] (see ThemeSection). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --fg: var(--color-paper);
+  --fg-muted: var(--color-muted-dark);
+}
+[data-theme="light"] {
+  --fg: var(--color-ink);
+  --fg-muted: var(--color-muted-light);
+}
+[data-theme="dark"] {
+  --fg: var(--color-paper);
+  --fg-muted: var(--color-muted-dark);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+/* Faint dot-grid texture. Uses currentColor so it adapts to section fg. */
+@utility dot-grid {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.05;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Faint square line-grid, fading toward the edges via a radial mask. */
+@utility grid-lines {
+  background-image:
+    linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.06;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 45%,
+    #000 30%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 45%,
+    #000 30%,
+    transparent 80%
+  );
+}
+
+/* Text with only an outline stroke (used in the text ticker). */
+@utility text-outline {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+/* Hide scrollbars on horizontal snap rows. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Keyframes                                                          */
+/* ------------------------------------------------------------------ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base styles                                                        */
+/* ------------------------------------------------------------------ */
+html {
+  /* IMPORTANT: Lenis handles smoothing; native smooth-scroll fights it. */
+  scroll-behavior: auto;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Even line lengths on headings; fewer orphans in prose. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+/* Custom scrollbar — thin, dark track, accent thumb. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(237, 237, 234, 0.18);
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(237, 237, 234, 0.25) var(--color-ink);
+}
+
+/* Selection colors use the accent. */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+/* Visible focus ring everywhere — accent, never removed. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion — kill all animation/transition globally           */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

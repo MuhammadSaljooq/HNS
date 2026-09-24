@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HNS — Higher Next Solutions
 
-## Getting Started
+Marketing site for **HNS Autopilot**, an AI automation agent for scheduled/automated
+reminders with a built-in CRM. Dark, monospace, scroll-driven.
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind v4 (CSS-first `@theme`) ·
+GSAP 3 + ScrollTrigger · Lenis smooth scroll. No component library, no Framer Motion.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to change things
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**All copy and data live in `content/` — never in JSX.** Swap these before launch
+(each file is marked `PLACEHOLDER COPY`):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| File | What it holds |
+|---|---|
+| `content/site.ts` | Brand name, product name, tagline, description, email/phone, nav, socials, `domain` |
+| `content/method.ts` | The 5-step Autopilot flow (also drives the preloader labels + nav dots) |
+| `content/services.ts` | Service groups (first group = flagship Automation & CRM) |
+| `content/case-studies.ts` | Case studies (slugs generate `/case-studies/[slug]` pages) |
+| `content/testimonials.ts` | Testimonial quotes |
+| `content/about.ts` | Manifesto, team, milestones |
 
-## Learn More
+- **Accent color / theme tokens:** `app/globals.css` (`@theme` block — `--color-accent` is the acid lime).
+- **Client logos & case-study covers:** currently rendered as styled placeholders (invented names / CSS gradients). Replace with real assets in `public/` and wire `next/image` when ready.
+- **Contact form delivery:** `app/api/contact/route.ts` validates with zod and logs. Wire a real provider (Resend/Postmark/CRM) where the `TODO` is.
 
-To learn more about Next.js, take a look at the following resources:
+## How the scroll system works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **`components/layout/SmoothScroll.tsx`** creates Lenis and drives it from GSAP's
+  ticker (`gsap.ticker.add(lenis.raf)`) so ScrollTrigger and Lenis never desync.
+  Under `prefers-reduced-motion` Lenis is skipped entirely (native scroll).
+- **`lib/gsap.ts`** is the single place GSAP plugins are registered. Always import
+  `{ gsap, ScrollTrigger }` from here, never from `"gsap"` directly.
+- **`components/layout/ThemeSection.tsx`** produces the dark↔light flips with a
+  clip-path wipe tied to scroll; children read `--fg` / `--fg-muted`.
+- **`components/sections/MethodHorizontal.tsx`** is the pinned horizontal centerpiece.
+- **`components/layout/ScrollRefresh.tsx`** refreshes ScrollTrigger after fonts load
+  and resets scroll on route change.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Animation primitives live in `components/ui/` (`SplitText`, `Reveal`, `Marquee`,
+`MagneticLink`, `Button`). Every animation is wrapped in `gsap.context()`, reverted on
+unmount, and respects reduced motion.
 
-## Deploy on Vercel
+## Known gotchas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Refresh after fonts load.** Pin distances are measured against font metrics, so
+  `document.fonts.ready.then(() => ScrollTrigger.refresh())` runs in both
+  `MethodHorizontal` and `ScrollRefresh`. Don't remove it or the pinned section ends early.
+- **Horizontal track math.** The track translates by `-((n-1)/n)*100`% computed from
+  the phase count — not a hardcoded `-80`. Add/remove a phase and it still lands right.
+- **The `matchMedia` breakpoint.** Below 1024px (and under reduced motion) the pinned
+  section falls back to a plain vertical stack via `gsap.matchMedia()`. Keep that branch.
+- **`SplitText` groups characters by word** (each word is `nowrap`) so headings never
+  break mid-word. Keep that structure if you edit it.
+- **Preloader** shows once per session (`sessionStorage`). Clear it to see it again.
+- **Turbopack root** is pinned in `next.config.ts` to ignore stray lockfiles outside the project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Routes
+
+`/` · `/services` · `/case-studies` (+ `/case-studies/[slug]`, statically generated) ·
+`/about` · `/contact` · `POST /api/contact`. Plus `sitemap.xml`, `robots.txt`, and a
+generated OpenGraph image (`app/opengraph-image.tsx`).
+
+## Deploy
+
+Any Next.js host works; Vercel is simplest. Set the real domain in `content/site.ts`
+(`domain`) so metadata, canonical URLs, sitemap, and robots resolve correctly.
