@@ -211,7 +211,7 @@ export function Globe({ className }: { className?: string }) {
     <canvas
       ref={canvasRef}
       role="img"
-      aria-label="Rotating globe showing where HNS works"
+      aria-label="Rotating globe showing where NHS works"
       className={cn(
         "aspect-square w-full max-w-full cursor-grab opacity-0 transition-opacity duration-1000",
         className,

@@ -1,7 +1,7 @@
 // PLACEHOLDER COPY — replace before launch
 
 export const manifesto =
-  "We started HNS because we were tired of watching good businesses lose deals to nothing more than a forgotten follow-up. The work was done. The interest was there. And then a reminder never got sent. Autopilot is our answer: an agent that never forgets, paired with a CRM that never loses the thread. Software should do the remembering so people can do the work that matters.";
+  "We started NHS because we were tired of watching good businesses lose deals to nothing more than a forgotten follow-up. The work was done. The interest was there. And then a reminder never got sent. Autopilot is our answer: an agent that never forgets, paired with a CRM that never loses the thread. Software should do the remembering so people can do the work that matters.";
 
 export type Member = { name: string; role: string };
 
@@ -19,7 +19,7 @@ export type Milestone = { year: string; title: string; detail: string };
 export const milestones: Milestone[] = [
   {
     year: "2013",
-    title: "HNS founded",
+    title: "NHS founded",
     detail: "Two engineers and a rule: outcomes over output.",
   },
   {

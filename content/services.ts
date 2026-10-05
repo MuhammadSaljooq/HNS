@@ -24,7 +24,7 @@ export const serviceGroups: ServiceGroup[] = [
     id: "automation",
     title: "Automation & CRM",
     summary:
-      "HNS Autopilot — the AI agent that schedules your reminders, plus the CRM that remembers everything.",
+      "NHS Autopilot — the AI agent that schedules your reminders, plus the CRM that remembers everything.",
     flagship: true,
     services: [
       {

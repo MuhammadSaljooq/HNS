@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -26,8 +26,8 @@ const siteUrl = `https://${site.domain}`;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — ${site.tagline}`,
-    template: `%s · ${site.name}`,
+    default: `${site.fullName} (${site.name}) — ${site.tagline}`,
+    template: `%s · ${site.fullName}`,
   },
   description: site.description,
   applicationName: site.fullName,
@@ -40,21 +40,35 @@ export const metadata: Metadata = {
     site.product,
     site.fullName,
   ],
-  authors: [{ name: site.fullName }],
-  alternates: { canonical: "/" },
+  authors: [{ name: site.fullName, url: siteUrl }],
+  creator: site.fullName,
+  publisher: site.fullName,
+  category: "technology",
+  // No `alternates.canonical` here: it would be inherited by every page and
+  // point them all at the home page. Each page sets its own via pageMetadata.
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: "/",
     siteName: site.fullName,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.fullName} (${site.name}) — ${site.tagline}`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.fullName} (${site.name}) — ${site.tagline}`,
     description: site.description,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  formatDetection: { telephone: false, email: false, address: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0b0c",
+  colorScheme: "dark",
 };
 
 // JSON-LD: Organization + WebSite + SoftwareApplication (Autopilot).
@@ -84,7 +98,6 @@ const jsonLd = {
       operatingSystem: "Web",
       description:
         "AI automation agent for scheduled and automated reminders, with a built-in CRM.",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@id": `${siteUrl}/#org` },
     },
   ],

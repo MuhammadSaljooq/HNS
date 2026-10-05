@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   }
 
   // TODO: wire a real email/CRM provider here (e.g. Resend, Postmark, or push
-  // straight into HNS Autopilot). For now we just log and acknowledge.
+  // straight into NHS Autopilot). For now we just log and acknowledge.
   console.log("[contact] new enquiry:", parsed.data);
 
   return NextResponse.json({ ok: true }, { status: 200 });

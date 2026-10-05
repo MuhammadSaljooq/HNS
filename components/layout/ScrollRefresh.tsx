@@ -25,11 +25,28 @@ export function ScrollRefresh() {
   }, []);
 
   useEffect(() => {
+    const hash = window.location.hash;
     if (lenis) lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
     // Let the new route paint before remeasuring.
     const id = requestAnimationFrame(() => ScrollTrigger.refresh());
-    return () => cancelAnimationFrame(id);
+
+    // Cross-page anchors (e.g. /#method): scroll to the target once pinned
+    // sections have been measured, instead of leaving the user at the top.
+    let timer: number | undefined;
+    if (hash.length > 1) {
+      timer = window.setTimeout(() => {
+        const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+        if (!el) return;
+        if (lenis) lenis.scrollTo(el, { offset: -96 });
+        else el.scrollIntoView({ behavior: "smooth" });
+      }, 400);
+    }
+
+    return () => {
+      cancelAnimationFrame(id);
+      window.clearTimeout(timer);
+    };
   }, [pathname, lenis]);
 
   return null;

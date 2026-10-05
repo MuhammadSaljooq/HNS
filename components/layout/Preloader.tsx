@@ -6,7 +6,7 @@ import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import { useLenis } from "@/components/layout/SmoothScroll";
 
 const PHASES = ["CAPTURE", "ORGANIZE", "AUTOMATE", "REMIND", "GROW"];
-const SESSION_KEY = "hns:preloaded";
+const SESSION_KEY = "nhs:preloaded";
 
 /** Fire once the intro finishes so the hero can start its entrance. */
 function emitDone() {

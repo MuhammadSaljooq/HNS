@@ -22,8 +22,10 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 34 }}>
-          <span style={{ letterSpacing: "-0.03em" }}>HN</span>
-          <span style={{ color: "#c8f751", letterSpacing: "-0.03em" }}>S</span>
+          <span style={{ letterSpacing: "-0.03em" }}>{site.name.slice(0, -1)}</span>
+          <span style={{ color: "#c8f751", letterSpacing: "-0.03em" }}>
+            {site.name.slice(-1)}
+          </span>
           <span
             style={{
               marginLeft: 24,

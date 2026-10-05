@@ -22,7 +22,7 @@ export function Hero() {
     const start = () => setPlay(true);
     const alreadySeen =
       typeof sessionStorage !== "undefined" &&
-      sessionStorage.getItem("hns:preloaded") === "1";
+      sessionStorage.getItem("nhs:preloaded") === "1";
     if (alreadySeen || prefersReducedMotion()) {
       start();
       return;

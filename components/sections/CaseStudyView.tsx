@@ -165,7 +165,7 @@ export function CaseStudyView({
             What we did
           </h2>
           <p className="mt-4 leading-relaxed text-muted-dark">
-            We rolled out HNS Autopilot on top of their existing tools. Every
+            We rolled out NHS Autopilot on top of their existing tools. Every
             contact now flows into the CRM automatically, and the agent owns the
             timing and delivery of each reminder across the channels their
             customers actually read.

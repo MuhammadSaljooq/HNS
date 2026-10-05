@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // Below-the-fold sections are code-split out of the initial bundle (still SSR'd).
 const LogoMarquee = dynamic(() =>

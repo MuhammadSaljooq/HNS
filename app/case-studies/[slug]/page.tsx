@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/lib/seo";
 import { caseStudies } from "@/content/case-studies";
 import { CaseStudyView } from "@/components/sections/CaseStudyView";
 import { CTA } from "@/components/sections/CTA";
@@ -15,15 +16,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const study = caseStudies.find((c) => c.slug === slug);
-  if (!study) return { title: "Case study not found" };
-  return {
+  if (!study) return { title: "Case study not found", robots: { index: false } };
+  return pageMetadata({
     title: `${study.client} — ${study.headline}`,
     description: study.summary,
-    openGraph: {
-      title: `${study.client} · ${study.headline}`,
-      description: study.summary,
-    },
-  };
+    path: `/case-studies/${study.slug}`,
+  });
 }
 
 export default async function CaseStudyPage({

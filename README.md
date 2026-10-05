@@ -1,6 +1,6 @@
-# HNS — Higher Next Solutions
+# NHS — Next Higher Solution
 
-Marketing site for **HNS Autopilot**, an AI automation agent for scheduled/automated
+Marketing site for **NHS Autopilot**, an AI automation agent for scheduled/automated
 reminders with a built-in CRM. Dark, monospace, scroll-driven.
 
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind v4 (CSS-first `@theme`) ·

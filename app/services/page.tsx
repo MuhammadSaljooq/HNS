@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/layout/PageHero";
 import { ServicesAccordion } from "@/components/sections/ServicesAccordion";
 import { ProcessStrip } from "@/components/sections/ProcessStrip";
 import { CTA } from "@/components/sections/CTA";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Product & Services",
-  description: `${site.product} — the AI reminder agent and CRM — plus the full-stack team behind it.`,
-};
+  description:
+    `${site.product} — the AI reminder agent and CRM — plus the full-stack team behind it.`,
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

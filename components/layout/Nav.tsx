@@ -103,10 +103,14 @@ export function Nav() {
   }, []);
 
   // Close dropdowns/mobile on route change, outside click, Escape.
-  useEffect(() => {
+  // (Route change is handled during render — the React-recommended way to
+  // reset state when a value changes, without a cascading effect render.)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setOpenDropdown(null);
     setMobileOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -132,12 +136,17 @@ export function Nav() {
   }, []);
 
   // Lock body scroll while mobile panel is open.
+  // Lenis drives scrolling itself, so it must be stopped too — overflow alone
+  // doesn't stop wheel/trackpad scrolling behind the panel.
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) lenis?.stop();
+    else lenis?.start();
     return () => {
       document.body.style.overflow = "";
+      lenis?.start();
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, lenis]);
 
   return (
     <header
@@ -171,13 +180,6 @@ export function Nav() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Search"
-            className="hidden size-10 items-center justify-center rounded-full text-paper/70 transition-colors hover:text-accent lg:flex"
-          >
-            <SearchIcon />
-          </button>
           <div className="hidden lg:block">
             <Button href="/contact" variant="primary" className="h-10 px-5">
               Start free
@@ -364,14 +366,5 @@ function MobilePanel({
         </Button>
       </div>
     </div>
-  );
-}
-
-function SearchIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-      <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.3" />
-      <path d="m11 11 3.5 3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-    </svg>
   );
 }

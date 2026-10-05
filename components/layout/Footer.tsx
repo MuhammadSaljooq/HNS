@@ -25,12 +25,11 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
-    title: "Resources",
+    title: "Product",
     links: [
-      { label: "Insights", href: "/#" },
-      { label: "Open Source", href: "/#" },
-      { label: "Careers", href: "/#" },
-      { label: "Privacy", href: "/#" },
+      { label: "AI Reminder Agent", href: "/services#automation" },
+      { label: "Built-in CRM", href: "/services#automation" },
+      { label: "Book a demo", href: "/contact" },
     ],
   },
 ];

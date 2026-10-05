@@ -23,7 +23,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     headline: "Automated onboarding reminders lifted activation by 38%.",
     summary:
-      "We rolled out HNS Autopilot to nudge new merchants through activation. The agent scheduled every reminder and logged each touch in the CRM — no rep had to chase.",
+      "We rolled out NHS Autopilot to nudge new merchants through activation. The agent scheduled every reminder and logged each touch in the CRM — no rep had to chase.",
     services: ["AI Reminder Agent", "Built-in CRM", "Automated Follow-ups"],
     metrics: [
       { label: "activation", value: "+38%" },

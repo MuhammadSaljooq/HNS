@@ -18,7 +18,7 @@ export function ScrollProgress() {
     const onDone = () => setReady(true);
     if (
       typeof sessionStorage !== "undefined" &&
-      sessionStorage.getItem("hns:preloaded") === "1"
+      sessionStorage.getItem("nhs:preloaded") === "1"
     ) {
       setReady(true);
     }

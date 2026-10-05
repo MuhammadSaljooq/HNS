@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/layout/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: `Start with ${site.product}, or tell us what you're trying to automate.`,
-};
+  description:
+    `Start with ${site.product}, or tell us what you're trying to automate.`,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

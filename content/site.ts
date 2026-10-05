@@ -11,19 +11,19 @@ export type Social = { label: string; href: string };
 
 export const site = {
   /** Compact wordmark. The last two characters render in the accent color. */
-  name: "HNS",
+  name: "NHS",
   /** Expanded brand name, used in metadata and the footer. */
-  fullName: "Higher Next Solutions",
+  fullName: "Next Higher Solution",
   /** Flagship product. */
-  product: "HNS Autopilot",
+  product: "NHS Autopilot",
   tagline: "Follow-ups on autopilot",
   description:
-    "HNS Autopilot is an AI automation agent that schedules and sends your reminders — paired with a built-in CRM that keeps every contact, deal, and follow-up in one place. Set it once; it never forgets.",
-  email: "hello@highernextsolutions.com",
+    "NHS Autopilot is an AI automation agent that schedules and sends your reminders — paired with a built-in CRM that keeps every contact, deal, and follow-up in one place. Set it once; it never forgets.",
+  email: "hello@nexthighersolution.com",
   phone: "+1 (555) 018-2049",
   whatsapp: "+15550182049",
   location: "Remote-first · Austin · London",
-  domain: "highernextsolutions.com",
+  domain: "nexthighersolution.com",
 
   socials: [
     { label: "LinkedIn", href: "https://linkedin.com" },

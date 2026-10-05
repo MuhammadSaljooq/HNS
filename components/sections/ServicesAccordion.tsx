@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import { serviceGroups } from "@/content/services";
@@ -8,6 +8,32 @@ import { cn } from "@/lib/utils";
 
 export function ServicesAccordion() {
   const [open, setOpen] = useState<string>(serviceGroups[0].id);
+
+  // Deep links like /services#cloud open the matching row. Next's <Link>
+  // changes the hash via pushState (no hashchange event), so also catch
+  // clicks on in-page service links.
+  useEffect(() => {
+    const ids = new Set(serviceGroups.map((g) => g.id));
+    const openFromHash = (hash: string) => {
+      const id = hash.replace(/^#/, "");
+      if (ids.has(id)) setOpen(id);
+    };
+    openFromHash(window.location.hash);
+
+    const onHashChange = () => openFromHash(window.location.hash);
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a[href]");
+      if (!a) return;
+      const url = new URL((a as HTMLAnchorElement).href, window.location.href);
+      if (url.pathname === window.location.pathname) openFromHash(url.hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    document.addEventListener("click", onClick, true);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onClick, true);
+    };
+  }, []);
 
   return (
     <div className="mx-auto max-w-5xl px-6">
@@ -79,7 +105,7 @@ function AccordionRow({
   }, [isOpen]);
 
   return (
-    <div className="border-b border-white/10">
+    <div id={id} className="scroll-mt-32 border-b border-white/10">
       <button
         type="button"
         aria-expanded={isOpen}
