@@ -172,8 +172,8 @@ export function MethodHorizontal() {
   return (
     <section
       ref={sectionRef}
-      data-theme="lime"
-      className="relative bg-lime text-[var(--fg)]"
+      data-theme="ink"
+      className="relative bg-ink text-[var(--fg)]"
     >
       <div className="dot-grid pointer-events-none absolute inset-0 !opacity-[0.04]" />
       <div
@@ -194,7 +194,7 @@ export function MethodHorizontal() {
               <span
                 data-panel-ghost
                 aria-hidden
-                className="pointer-events-none absolute left-1/2 top-1/2 -z-0 -translate-x-1/2 -translate-y-1/2 font-display font-bold leading-none text-ink"
+                className="pointer-events-none absolute left-1/2 top-1/2 -z-0 -translate-x-1/2 -translate-y-1/2 font-display font-bold leading-none text-paper"
                 style={{ fontSize: "45vw", opacity: 0.04 }}
               >
                 {phase.index}
@@ -222,7 +222,7 @@ export function MethodHorizontal() {
                 >
                   {phase.claim}
                 </p>
-                <div className="my-8 h-px w-24 bg-ink/30" />
+                <div className="my-8 h-px w-24 bg-paper/30" />
                 <ul className="flex flex-col gap-2">
                   {phase.points.map((pt) => (
                     <li
@@ -242,10 +242,10 @@ export function MethodHorizontal() {
 
         {/* Progress tracker (desktop only). */}
         <div className="pointer-events-none absolute inset-x-0 bottom-8 hidden items-center justify-center gap-4 lg:flex">
-          <div className="relative h-px w-40 bg-ink/15">
+          <div className="relative h-px w-40 bg-paper/15">
             <div
               ref={progressFillRef}
-              className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-accent"
+              className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-metal"
             />
           </div>
           <span

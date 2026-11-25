@@ -19,7 +19,7 @@ export function MethodIntro() {
 
     const ctx = gsap.context(() => {
       gsap.to(items, {
-        color: "var(--color-accent)",
+        color: "var(--color-accent-ink)",
         stagger: 1,
         ease: "none",
         scrollTrigger: {
@@ -35,7 +35,7 @@ export function MethodIntro() {
   }, []);
 
   return (
-    <ThemeSection theme="lime" id="method">
+    <ThemeSection theme="ink" id="method">
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-40 text-center">
         <Eyebrow>HOW IT WORKS</Eyebrow>
         <h2

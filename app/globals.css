@@ -5,21 +5,22 @@
 /*  Font tokens point at the next/font CSS variables set in layout.tsx */
 /* ------------------------------------------------------------------ */
 @theme {
-  /* Lime in daylight: white canvas, near-black ink, acid lime as a FILL. */
-  --color-canvas: #fcfdfa; /* page base */
-  --color-surface: #f1f3ec; /* alternate light sections, menus, cards */
-  --color-line: #e0e3d8; /* hairlines */
-  --color-ink: #0b0b0c; /* text — 19.3:1 on canvas */
-  --color-ink-soft: #141416; /* footer, stats pill */
-  --color-ink-muted: #55574f; /* secondary text — 7.2:1 on canvas */
-  --color-paper: #ededea; /* text on ink */
-  --color-lime: #c8f751; /* the brand colour — never remapped; for drenched sections */
+  /* Daylight metal: cool white canvas, near-black ink, steel and silver accents. */
+  --color-canvas: #fbfbfc; /* page base */
+  --color-surface: #eef0f3; /* alternate light sections, menus, cards */
+  --color-line: #dde0e5; /* hairlines */
+  --color-ink: #0c0d0f; /* text, bold sections, primary buttons — 19:1 on canvas */
+  --color-ink-soft: #16181b; /* footer, stats pill */
+  --color-ink-muted: #555a62; /* secondary text — 6.8:1 on canvas */
+  --color-paper: #e9ebee; /* text on ink */
+  --color-brand: #56616e; /* steel — accent text/lines on light (6.2:1), hover fills */
+  --color-brand-bright: #c2c9d2; /* silver on ink (12:1) */
 
   /* Accent roles. Remapped per [data-theme] below so components just say
      bg-accent / text-accent-ink and stay legible on any surface. */
-  --color-accent: #c8f751; /* fills: buttons, badges, highlighter */
-  --color-accent-ink: #4a6b00; /* accent as text/lines on light — 6.1:1 */
-  --color-on-accent: #0b0b0c; /* text on accent fills — 15.8:1 */
+  --color-accent: #0c0d0f; /* fills: buttons, badges, active chips */
+  --color-accent-ink: #56616e; /* accent as text, lines, dots */
+  --color-on-accent: #fbfbfc; /* text on accent fills */
 
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-display: var(--font-geist), var(--font-jetbrains), monospace;
@@ -32,26 +33,31 @@
   --fg: var(--color-ink);
   --fg-muted: var(--color-ink-muted);
 }
-/* Drenched lime sections: ink becomes the accent. */
-[data-theme="lime"] {
-  --color-accent: var(--color-ink);
-  --color-accent-ink: var(--color-ink);
-  --color-on-accent: var(--color-lime);
-  --fg: var(--color-ink);
-  --fg-muted: #3d4710;
-}
-/* Ink blocks (footer, stats pill): lime is readable as text here. */
+/* Ink sections (method, CTA, footer, stats pill): invert; steel becomes silver. */
 [data-theme="ink"] {
-  --color-accent: var(--color-lime);
-  --color-accent-ink: var(--color-lime);
+  --color-accent: var(--color-paper);
+  --color-accent-ink: var(--color-brand-bright);
   --color-on-accent: var(--color-ink);
   --fg: var(--color-paper);
-  --fg-muted: rgba(237, 237, 234, 0.62);
+  --fg-muted: rgba(233, 235, 238, 0.64);
 }
 
 /* ------------------------------------------------------------------ */
 /*  Utilities                                                          */
 /* ------------------------------------------------------------------ */
+
+/* Brushed-metal fill for thin accent bars (underline, progress). Uses the
+   section's accent-ink so it reads steel on white and silver on ink. */
+@utility bg-metal {
+  background-image: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--color-accent-ink) 70%, white) 0%,
+    var(--color-accent-ink) 35%,
+    color-mix(in oklab, var(--color-accent-ink) 45%, white) 55%,
+    var(--color-accent-ink) 80%,
+    color-mix(in oklab, var(--color-accent-ink) 80%, black) 100%
+  );
+}
 
 /* Faint dot-grid texture. Uses currentColor so it adapts to section fg. */
 @utility dot-grid {
@@ -153,7 +159,7 @@ p {
   background: var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(11, 11, 12, 0.2);
+  background: rgba(12, 13, 15, 0.2);
   border: 2px solid var(--color-canvas);
   border-radius: 999px;
 }
@@ -163,17 +169,17 @@ p {
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(11, 11, 12, 0.25) var(--color-canvas);
+  scrollbar-color: rgba(12, 13, 15, 0.25) var(--color-canvas);
 }
 
-/* Selection is a lime highlighter. */
+/* Selection in steel. */
 ::selection {
-  background-color: var(--color-lime);
-  color: var(--color-ink);
+  background-color: var(--color-brand);
+  color: #fff;
 }
 ::-moz-selection {
-  background-color: var(--color-lime);
-  color: var(--color-ink);
+  background-color: var(--color-brand);
+  color: #fff;
 }
 
 /* Visible focus ring everywhere — accent, never removed. */

@@ -79,7 +79,7 @@ export function Nav() {
           // Shrink after 100px.
           quickH.current?.(y > 100 ? 56 : 64);
           pill.style.backgroundColor =
-            y > 100 ? "rgba(249,253,251,0.9)" : "rgba(249,253,251,0.72)";
+            y > 100 ? "rgba(251,251,252,0.9)" : "rgba(251,251,252,0.72)";
           // Hide when scrolling down past 60% vh; show on scroll up.
           if (self.direction === 1 && y > vh * 0.6) {
             quickY.current?.(-150);
@@ -147,7 +147,7 @@ export function Nav() {
       <div
         ref={pillRef}
         className="flex items-center justify-between rounded-full border border-ink/10 px-6 backdrop-blur-xl md:px-8"
-        style={{ height: 64, backgroundColor: "rgba(249,253,251,0.72)" }}
+        style={{ height: 64, backgroundColor: "rgba(251,251,252,0.72)" }}
       >
         <Wordmark />
 

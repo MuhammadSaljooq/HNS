@@ -35,22 +35,22 @@ export function CTA() {
   return (
     <section
       ref={ref}
-      data-theme="lime"
-      className="relative z-10 flex min-h-screen shadow-[0_2px_0_0_var(--color-lime)] flex-col items-center justify-center overflow-hidden bg-lime px-6 text-center text-ink"
+      data-theme="ink"
+      className="relative z-10 flex min-h-screen shadow-[0_2px_0_0_var(--color-ink)] flex-col items-center justify-center overflow-hidden bg-ink px-6 text-center text-paper"
     >
       <div className="dot-grid pointer-events-none absolute inset-0" />
       {/* Accent radial glow */}
       <div
         ref={glowRef}
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-canvas opacity-[0.45] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-ink opacity-[0.12] blur-[140px]"
       />
 
       <div className="relative z-10 flex flex-col items-center">
         <Eyebrow>PUT FOLLOW-UPS ON AUTOPILOT</Eyebrow>
         <h2
           className="mt-8 max-w-5xl font-display font-medium leading-[0.9] tracking-[-0.04em]"
-          style={{ fontSize: "clamp(2.75rem, 9vw, 9rem)" }}
+          style={{ fontSize: "clamp(2.75rem, 8vw, 6.5rem)" }}
         >
           <SplitText by="char" stagger={0.02}>
             Ready to stop
@@ -66,13 +66,13 @@ export function CTA() {
           <Button
             href="/contact"
             variant="primary"
-            className="before:bg-canvas hover:text-ink"
+            className="hover:text-white"
           >
             Start free
           </Button>
           <MagneticLink
             href={`mailto:${site.email}`}
-            className="font-display text-xl tracking-tight text-ink/80 underline decoration-ink/30 decoration-1 underline-offset-8 transition-colors hover:text-ink hover:decoration-ink md:text-3xl"
+            className="font-display text-xl tracking-tight text-paper/80 underline decoration-paper/30 decoration-1 underline-offset-8 transition-colors hover:text-paper hover:decoration-accent-ink md:text-3xl"
           >
             {site.email}
           </MagneticLink>

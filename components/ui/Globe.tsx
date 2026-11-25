@@ -116,7 +116,7 @@ export function Globe({ className }: { className?: string }) {
         const alpha = front > 0 ? 0.35 + 0.65 * front : 0.12 + 0.14 * (1 + front);
         const r = front > 0 ? dot * (0.6 + 0.5 * front) : dot * 0.5;
         ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
-        ctx.fillStyle = "#2a2b26";
+        ctx.fillStyle = "#2b2f35";
         ctx.beginPath();
         ctx.arc(sx, sy, r, 0, Math.PI * 2);
         ctx.fill();
@@ -134,8 +134,8 @@ export function Globe({ className }: { className?: string }) {
         const sx = cx + x * R;
         const sy = cy - y * R;
         ctx.globalAlpha = 1;
-        ctx.fillStyle = "#c8f751";
-        ctx.strokeStyle = "#0b0b0c";
+        ctx.fillStyle = "#56616e";
+        ctx.strokeStyle = "#fbfbfc";
         ctx.lineWidth = 1.25;
         ctx.beginPath();
         ctx.arc(sx, sy, dot * 1.9, 0, Math.PI * 2);

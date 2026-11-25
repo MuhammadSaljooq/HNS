@@ -6,7 +6,7 @@ import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import { cn } from "@/lib/utils";
 
 export type ThemeSectionProps = {
-  theme: "dark" | "light" | "lime";
+  theme: "dark" | "light" | "ink";
   children: ReactNode;
   className?: string;
   id?: string;
@@ -73,7 +73,7 @@ export function ThemeSection({
           "absolute inset-0 -z-10",
           theme === "light" && "bg-surface",
           theme === "dark" && "bg-canvas",
-          theme === "lime" && "bg-lime",
+          theme === "ink" && "bg-ink",
         )}
         style={{ clipPath: "ellipse(75% 0% at 50% 100%)" }}
       >

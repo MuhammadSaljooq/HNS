@@ -37,8 +37,8 @@ const variants: Record<Variant, string> = {
     sizing,
     "overflow-hidden bg-accent text-on-accent font-medium",
     "before:absolute before:inset-0 before:origin-bottom before:scale-y-0",
-    "before:bg-ink before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.22,1,0.36,1)]",
-    "hover:before:scale-y-100 hover:text-canvas",
+    "before:bg-brand before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.22,1,0.36,1)]",
+    "hover:before:scale-y-100 hover:text-white",
   ),
   ghost: cn(
     sizing,

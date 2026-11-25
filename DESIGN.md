@@ -1,29 +1,29 @@
 # Design
 
 ## Visual theme
-Lime in daylight. A white canvas with near-black ink. The acid lime is the brand colour and is always used as a FILL: drenched sections, buttons, the hero highlighter, the loading screen. It is never used as text or thin lines on white (1.2:1). Section rhythm: white hero → lime "How it works" (the pinned horizontal scroll) → white and grey → lime CTA → ink footer.
+Daylight metal. A cool white canvas with near-black ink. The bold sections ("How it works", the pinned horizontal scroll, the CTA, the loading screen and the footer) are solid ink. Accents are metallic: steel on white, silver on ink, used only for small details such as the hero underline, eyebrow dots, progress lines, the "." and "?" in headlines, and button hover fills. Primary buttons are ink pills on white and silver pills on ink. Section rhythm: white hero → ink "How it works" → white and grey → ink CTA → ink footer.
 
 ## Color
 Tokens live in `app/globals.css` (`@theme`). Use the token classes, never raw hex values, in components.
 
 | Token | Hex | Use | Contrast |
 |---|---|---|---|
-| `canvas` | `#fcfdfa` | Page base, `theme="dark"` sections | — |
-| `surface` | `#f1f3ec` | `theme="light"` sections, menus, cards | — |
-| `ink` | `#0b0b0c` | Text | 19.3:1 on canvas |
-| `ink-soft` | `#141416` | Footer, stats pill | — |
-| `ink-muted` | `#55574f` | Secondary text | 7.2:1 on canvas |
-| `paper` | `#ededea` | Text on ink | — |
-| `lime` | `#c8f751` | Drenched sections (`theme="lime"`), never remapped | ink on lime 15.8:1 |
-| `accent` | lime | Fills: buttons, badges | — |
-| `accent-ink` | `#4a6b00` | Accent as text, lines or dots on light | 6.1:1 on canvas |
-| `on-accent` | ink | Text on accent fills | 15.8:1 |
+| `canvas` | `#fbfbfc` | Page base, `theme="dark"` sections | — |
+| `surface` | `#eef0f3` | `theme="light"` sections, menus, cards | — |
+| `line` | `#dde0e5` | Hairlines | — |
+| `ink` | `#0c0d0f` | Text, `theme="ink"` sections, primary buttons | 19:1 on canvas |
+| `ink-soft` | `#16181b` | Footer, stats pill | — |
+| `ink-muted` | `#555a62` | Secondary text | 6.7:1 on canvas |
+| `paper` | `#e9ebee` | Text on ink | — |
+| `brand` | `#56616e` | Steel: accent text and lines on light, button hover fill | 6.1:1 on canvas; white on it 6.3:1 |
+| `brand-bright` | `#c2c9d2` | Silver: accent on ink | 11.7:1 on ink |
+| `accent` | ink (paper on ink) | Fills: buttons, badges, active chips | — |
+| `accent-ink` | steel (silver on ink) | Accent text, lines, dots | — |
+| `on-accent` | canvas (ink on ink sections) | Text on accent fills | — |
 
-Scoped remaps (in `globals.css`):
-- `[data-theme="lime"]`: accent and accent-ink become ink, and on-accent becomes lime, so buttons in lime sections are ink pills with lime text.
-- `[data-theme="ink"]`: accent and accent-ink become lime, so lime is readable as text on dark.
+Scoped remap: `[data-theme="ink"]` inverts the roles. Accent becomes paper, accent-ink becomes silver, and `--fg` becomes paper.
 
-Rule of thumb: `bg-accent` for fills, `text-accent-ink` / `border-accent-ink` / `bg-accent-ink` for text, lines and dots.
+Rule of thumb: `bg-accent` for fills, `text-accent-ink` / `border-accent-ink` / `bg-accent-ink` for text, lines and dots. `bg-metal` is a brushed-metal gradient for thin accent bars (hero underline, method progress); it follows the scope's accent-ink.
 
 ## Typography
 - Body: JetBrains Mono (`font-mono`).
@@ -36,6 +36,5 @@ Rule of thumb: `bg-accent` for fills, `text-accent-ink` / `border-accent-ink` / 
 - The source is a raster export from Canva. Replace with a true vector SVG when the designer supplies one.
 
 ## Motion
-- Hero: a lime highlighter sweeps behind "follow-up" (GSAP scaleX, expo.out, at 0.75s into the entrance timeline).
-- Loading screen is drenched lime.
-- Everything else is unchanged from the original build: Lenis plus GSAP ScrollTrigger, the pinned horizontal method section, the curved clip-path section wipes, SplitText reveals and the magnetic links. All of it respects reduced motion.
+- Hero: a brushed-steel underline sweeps under "follow-up" (GSAP scaleX, expo.out, at 0.75s into the entrance timeline).
+- Everything else is unchanged from the original build: preloader counter, Lenis plus GSAP ScrollTrigger, the pinned horizontal method section, the curved clip-path section wipes, SplitText reveals and the magnetic links. All of it respects reduced motion.

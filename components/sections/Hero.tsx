@@ -152,12 +152,12 @@ export function Hero() {
             >
               a
             </SplitText>{" "}
-            {/* Lime highlighter swept behind the key word. */}
+            {/* Brushed-steel underline swept under the key word. */}
             <span className="relative isolate inline-block">
               <span
                 data-hero-mark
                 aria-hidden
-                className="absolute -inset-x-[0.06em] bottom-[0.02em] top-[0.2em] -z-10 origin-left bg-lime"
+                className="absolute inset-x-0 -bottom-[0.02em] h-[0.09em] -z-10 origin-left bg-metal"
               />
               <SplitText
                 by="char"

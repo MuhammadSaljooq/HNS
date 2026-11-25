@@ -20,8 +20,8 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#fcfdfa",
-          color: "#0b0b0c",
+          background: "#fbfbfc",
+          color: "#0c0d0f",
           padding: "72px",
           fontFamily: "monospace",
         }}
@@ -41,8 +41,8 @@ export default async function OpengraphImage() {
           <span>Never miss</span>
           <span style={{ display: "flex" }}>
             a&nbsp;
-            <span style={{ background: "#c8f751", padding: "0 12px" }}>follow-up</span>
-            <span style={{ color: "#4a6b00" }}>.</span>
+            <span style={{ borderBottom: "8px solid #56616e" }}>follow-up</span>
+            <span style={{ color: "#56616e" }}>.</span>
           </span>
         </div>
 
@@ -50,7 +50,7 @@ export default async function OpengraphImage() {
           style={{
             display: "flex",
             fontSize: 24,
-            color: "#55574f",
+            color: "#555a62",
             maxWidth: 900,
           }}
         >
