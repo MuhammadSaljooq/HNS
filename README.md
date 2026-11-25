@@ -1,7 +1,7 @@
 # NHS — Next Higher Solution
 
 Marketing site for **NHS Autopilot**, an AI automation agent for scheduled/automated
-reminders with a built-in CRM. Dark, monospace, scroll-driven.
+reminders with a built-in CRM. Bright, monospace, scroll-driven. See `DESIGN.md` for tokens and `PRODUCT.md` for brand context.
 
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind v4 (CSS-first `@theme`) ·
 GSAP 3 + ScrollTrigger · Lenis smooth scroll. No component library, no Framer Motion.
@@ -29,7 +29,7 @@ npm start        # serve the production build
 | `content/testimonials.ts` | Testimonial quotes |
 | `content/about.ts` | Manifesto, team, milestones |
 
-- **Accent color / theme tokens:** `app/globals.css` (`@theme` block — `--color-accent` is the acid lime).
+- **Accent color / theme tokens:** `app/globals.css` (`@theme` block — `--color-accent` is the pine green; full palette in `DESIGN.md`).
 - **Client logos & case-study covers:** currently rendered as styled placeholders (invented names / CSS gradients). Replace with real assets in `public/` and wire `next/image` when ready.
 - **Contact form delivery:** `app/api/contact/route.ts` validates with zod and logs. Wire a real provider (Resend/Postmark/CRM) where the `TODO` is.
 
@@ -40,7 +40,7 @@ npm start        # serve the production build
   Under `prefers-reduced-motion` Lenis is skipped entirely (native scroll).
 - **`lib/gsap.ts`** is the single place GSAP plugins are registered. Always import
   `{ gsap, ScrollTrigger }` from here, never from `"gsap"` directly.
-- **`components/layout/ThemeSection.tsx`** produces the dark↔light flips with a
+- **`components/layout/ThemeSection.tsx`** produces the section colour flips (canvas ↔ surface ↔ wash) with a
   clip-path wipe tied to scroll; children read `--fg` / `--fg-muted`.
 - **`components/sections/MethodHorizontal.tsx`** is the pinned horizontal centerpiece.
 - **`components/layout/ScrollRefresh.tsx`** refreshes ScrollTrigger after fonts load

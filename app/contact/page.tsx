@@ -81,7 +81,7 @@ function ContactBlock({
 }) {
   return (
     <div>
-      <div className="mb-2 text-[11px] uppercase tracking-[0.2em] text-paper/40">
+      <div className="mb-2 text-[11px] uppercase tracking-[0.2em] text-ink-muted">
         {label}
       </div>
       <div className="text-sm">{children}</div>

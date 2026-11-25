@@ -35,14 +35,15 @@ export function CTA() {
   return (
     <section
       ref={ref}
-      className="relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ink px-6 text-center"
+      data-theme="deep"
+      className="relative z-10 flex min-h-screen shadow-[0_2px_0_0_var(--color-deep)] flex-col items-center justify-center overflow-hidden bg-deep px-6 text-center text-on-deep"
     >
       <div className="dot-grid pointer-events-none absolute inset-0" />
       {/* Accent radial glow */}
       <div
         ref={glowRef}
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent opacity-[0.12] blur-[120px] mix-blend-screen"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-bright opacity-[0.14] blur-[120px] mix-blend-screen"
       />
 
       <div className="relative z-10 flex flex-col items-center">
@@ -58,16 +59,20 @@ export function CTA() {
           <SplitText by="char" stagger={0.02} delay={0.2}>
             chasing people
           </SplitText>
-          <span className="text-accent">?</span>
+          <span className="text-accent-bright">?</span>
         </h2>
 
         <div className="mt-12 flex flex-col items-center gap-8">
-          <Button href="/contact" variant="primary">
+          <Button
+            href="/contact"
+            variant="primary"
+            className="bg-accent-bright text-deep before:bg-on-deep hover:text-deep"
+          >
             Start free
           </Button>
           <MagneticLink
             href={`mailto:${site.email}`}
-            className="font-display text-xl tracking-tight text-paper/80 transition-colors hover:text-accent md:text-3xl"
+            className="font-display text-xl tracking-tight text-on-deep/80 transition-colors hover:text-accent-bright md:text-3xl"
           >
             {site.email}
           </MagneticLink>

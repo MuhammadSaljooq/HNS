@@ -65,7 +65,7 @@ export function StatsBar() {
   return (
     <div
       ref={ref}
-      className="mx-auto flex w-[calc(100%-3rem)] max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-4 rounded-full border border-white/10 bg-ink-soft/80 px-8 py-5 backdrop-blur-xl md:gap-x-12"
+      className="mx-auto flex w-[calc(100%-3rem)] max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-4 rounded-full border border-ink/10 bg-surface/80 px-8 py-5 backdrop-blur-xl md:gap-x-12"
     >
       {stats.map((s, i) => (
         <div key={s.label} className="flex items-center gap-8 md:gap-12">
@@ -77,7 +77,7 @@ export function StatsBar() {
               </span>
               {s.suffix}
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-paper/45">
+            <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
               {s.label}
             </span>
           </div>

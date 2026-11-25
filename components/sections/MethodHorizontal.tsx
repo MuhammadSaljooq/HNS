@@ -173,7 +173,7 @@ export function MethodHorizontal() {
     <section
       ref={sectionRef}
       data-theme="light"
-      className="relative bg-paper text-[var(--fg)]"
+      className="relative bg-surface text-[var(--fg)]"
     >
       <div className="dot-grid pointer-events-none absolute inset-0 !opacity-[0.04]" />
       <div

@@ -24,7 +24,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
           </SplitText>
         </h1>
         <Reveal delay={0.2}>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-dark md:text-lg">
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
             {description}
           </p>
         </Reveal>

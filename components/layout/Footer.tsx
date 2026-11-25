@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLenis } from "@/components/layout/SmoothScroll";
 import { site } from "@/content/site";
 
@@ -43,12 +44,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="sticky bottom-0 z-0 overflow-hidden bg-ink-soft">
+    <footer className="sticky bottom-0 z-0 overflow-hidden bg-deep-soft text-on-deep" data-theme="deep">
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-24">
         {/* Oversized wordmark flourish */}
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 select-none text-center font-display font-bold leading-none text-white/[0.05]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 select-none text-center font-display font-bold leading-none text-on-deep/[0.05]"
           style={{ fontSize: "18vw" }}
         >
           {site.name}
@@ -56,21 +57,32 @@ export function Footer() {
 
         <div className="relative grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <span className="font-display text-2xl tracking-tight">
-              {site.name.slice(0, -2)}
-              <span className="text-accent">{site.name.slice(-2)}</span>
+            <span className="flex items-center gap-3">
+              <Image
+                src="/brand/nhs-mark.webp"
+                alt=""
+                width={192}
+                height={192}
+                sizes="48px"
+                className="size-12"
+              />
+              <span className="font-display text-lg leading-tight tracking-tight">
+                Next Higher
+                <br />
+                Solutions
+              </span>
             </span>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/50">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-deep/50">
               {site.fullName}. {site.tagline}.
             </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.15em] text-paper/40">
+            <p className="mt-4 text-xs uppercase tracking-[0.15em] text-on-deep/60">
               {site.location}
             </p>
           </div>
 
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-paper/40">
+              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-on-deep/60">
                 {col.title}
               </h3>
               <ul className="flex flex-col gap-2">
@@ -78,7 +90,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-sm text-paper/70 transition-colors hover:text-accent"
+                      className="text-sm text-on-deep/70 transition-colors hover:text-accent-bright"
                     >
                       {l.label}
                     </Link>
@@ -90,8 +102,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="relative mt-20 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-xs text-paper/40">
+        <div className="relative mt-20 flex flex-col items-center justify-between gap-6 border-t border-on-deep/15 pt-8 md:flex-row">
+          <p className="text-xs text-on-deep/60">
             © {new Date().getFullYear()} {site.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -101,7 +113,7 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-[0.15em] text-paper/60 transition-colors hover:text-accent"
+                className="text-xs uppercase tracking-[0.15em] text-on-deep/60 transition-colors hover:text-accent-bright"
               >
                 {s.label}
               </a>
@@ -109,7 +121,7 @@ export function Footer() {
             <button
               type="button"
               onClick={toTop}
-              className="text-xs uppercase tracking-[0.15em] text-paper/60 transition-colors hover:text-accent"
+              className="text-xs uppercase tracking-[0.15em] text-on-deep/60 transition-colors hover:text-accent-bright"
             >
               ↑ Back to top
             </button>

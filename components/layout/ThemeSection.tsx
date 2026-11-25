@@ -71,7 +71,7 @@ export function ThemeSection({
         aria-hidden
         className={cn(
           "absolute inset-0 -z-10",
-          theme === "light" ? "bg-paper" : "bg-ink",
+          theme === "light" ? "bg-surface" : "bg-wash",
         )}
         style={{ clipPath: "ellipse(75% 0% at 50% 100%)" }}
       >

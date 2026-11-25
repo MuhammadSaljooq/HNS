@@ -18,7 +18,7 @@ const clients = [
 
 function LogoWordmark({ name }: { name: string }) {
   return (
-    <span className="mx-10 select-none font-display text-2xl tracking-tight text-paper/40 grayscale transition-all duration-500 hover:text-accent hover:grayscale-0 md:text-3xl">
+    <span className="mx-10 select-none font-display text-2xl tracking-tight text-ink-muted grayscale transition-all duration-500 hover:text-accent hover:grayscale-0 md:text-3xl">
       {name}
     </span>
   );

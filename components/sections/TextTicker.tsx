@@ -41,7 +41,7 @@ export function TextTicker() {
   return (
     <section
       aria-label={PHRASE}
-      className="flex flex-col gap-2 border-y border-white/10 py-8"
+      className="flex flex-col gap-2 border-y border-ink/10 py-8"
     >
       <Row outlined={false} direction="left" />
       <Row outlined direction="right" />

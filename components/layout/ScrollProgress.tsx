@@ -71,7 +71,7 @@ export function ScrollProgress() {
       aria-hidden
     >
       <div
-        className="relative w-px bg-white/25"
+        className="relative w-px bg-ink/25"
         style={{ height: RULE_HEIGHT }}
       >
         <div
@@ -81,7 +81,7 @@ export function ScrollProgress() {
       </div>
       <span
         ref={labelRef}
-        className="text-[10px] tracking-[0.2em] text-paper/60"
+        className="text-[10px] tracking-[0.2em] text-ink/75"
       >
         000%
       </span>

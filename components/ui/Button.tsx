@@ -35,14 +35,14 @@ const variants: Record<Variant, string> = {
   // Fill sweep from the bottom on hover; label inverts. Pure CSS.
   primary: cn(
     sizing,
-    "overflow-hidden bg-accent text-ink font-medium",
+    "overflow-hidden bg-accent text-on-accent font-medium",
     "before:absolute before:inset-0 before:origin-bottom before:scale-y-0",
     "before:bg-ink before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.22,1,0.36,1)]",
-    "hover:before:scale-y-100 hover:text-paper",
+    "hover:before:scale-y-100 hover:text-canvas",
   ),
   ghost: cn(
     sizing,
-    "border border-white/20 text-[var(--fg)] hover:border-accent hover:text-accent",
+    "border border-ink/20 text-[var(--fg)] hover:border-accent hover:text-accent",
   ),
   link: "text-[var(--fg)] underline underline-offset-4 decoration-1 hover:decoration-accent hover:underline-offset-8 transition-all",
 };

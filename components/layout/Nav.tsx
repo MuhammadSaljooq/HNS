@@ -2,37 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import { useLenis } from "@/components/layout/SmoothScroll";
 import { site, type NavItem } from "@/content/site";
-import { phases } from "@/content/method";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
-/** Wordmark with the last two characters accent-colored. */
+/** Brand lockup — the Next Higher Solutions logo. */
 function Wordmark() {
-  const name = site.name;
-  const head = name.slice(0, Math.max(0, name.length - 2));
-  const tail = name.slice(Math.max(0, name.length - 2));
   return (
-    <Link href="/" className="group flex flex-col leading-none" aria-label={site.fullName}>
-      <span className="font-display text-lg tracking-tight">
-        {head}
-        <span className="text-accent">{tail}</span>
-      </span>
-      <span className="mt-1 flex gap-1" aria-hidden>
-        {phases.map((p, i) => (
-          <span
-            key={p.id}
-            className={cn(
-              "size-1 rounded-full",
-              i === phases.length - 1 ? "bg-accent" : "bg-white/30",
-            )}
-          />
-        ))}
-      </span>
+    <Link href="/" className="flex shrink-0 items-center" aria-label={`${site.fullName} — home`}>
+      <Image
+        src="/brand/nhs-logo.webp"
+        alt={site.fullName}
+        width={960}
+        height={409}
+        priority
+        sizes="96px"
+        className="h-10 w-auto md:h-11"
+      />
     </Link>
   );
 }
@@ -88,7 +79,7 @@ export function Nav() {
           // Shrink after 100px.
           quickH.current?.(y > 100 ? 56 : 64);
           pill.style.backgroundColor =
-            y > 100 ? "rgba(20,20,22,0.85)" : "rgba(20,20,22,0.6)";
+            y > 100 ? "rgba(249,253,251,0.9)" : "rgba(249,253,251,0.72)";
           // Hide when scrolling down past 60% vh; show on scroll up.
           if (self.direction === 1 && y > vh * 0.6) {
             quickY.current?.(-150);
@@ -155,8 +146,8 @@ export function Nav() {
     >
       <div
         ref={pillRef}
-        className="flex items-center justify-between rounded-full border border-white/10 px-6 backdrop-blur-xl md:px-8"
-        style={{ height: 64, backgroundColor: "rgba(20,20,22,0.6)" }}
+        className="flex items-center justify-between rounded-full border border-ink/10 px-6 backdrop-blur-xl md:px-8"
+        style={{ height: 64, backgroundColor: "rgba(249,253,251,0.72)" }}
       >
         <Wordmark />
 
@@ -191,7 +182,7 @@ export function Nav() {
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex size-10 items-center justify-center rounded-full text-paper lg:hidden"
+            className="flex size-10 items-center justify-center rounded-full text-ink lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
@@ -255,7 +246,7 @@ function NavLink({
       <Link
         href={item.href}
         onClick={onAnchor(item.href)}
-        className="text-xs uppercase tracking-[0.15em] text-paper/80 transition-colors hover:text-accent"
+        className="text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent"
       >
         {item.label}
       </Link>
@@ -273,7 +264,7 @@ function NavLink({
         aria-expanded={open}
         aria-controls={`dropdown-${item.label}`}
         onClick={onToggle}
-        className="flex items-center gap-1 text-xs uppercase tracking-[0.15em] text-paper/80 transition-colors hover:text-accent"
+        className="flex items-center gap-1 text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent"
       >
         {item.label}
         <span aria-hidden className={cn("transition-transform", open && "rotate-180")}>
@@ -288,14 +279,14 @@ function NavLink({
           <div
             id={`dropdown-${item.label}`}
             ref={panelRef}
-            className="rounded-2xl border border-white/10 bg-ink-soft/95 p-2 backdrop-blur-xl"
+            className="rounded-2xl border border-ink/10 bg-surface/95 p-2 backdrop-blur-xl"
           >
             {item.children!.map((child) => (
               <Link
                 key={child.label}
                 href={child.href}
                 onClick={onAnchor(child.href)}
-                className="block rounded-xl px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-paper/75 transition-colors hover:bg-white/5 hover:text-accent"
+                className="block rounded-xl px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink/75 transition-colors hover:bg-ink/[0.04] hover:text-accent"
               >
                 {child.label}
               </Link>
@@ -330,7 +321,7 @@ function MobilePanel({
   return (
     <div
       ref={ref}
-      className="mt-3 max-h-[80vh] overflow-y-auto rounded-3xl border border-white/10 bg-ink-soft/95 p-6 backdrop-blur-xl lg:hidden"
+      className="mt-3 max-h-[80vh] overflow-y-auto rounded-3xl border border-ink/10 bg-surface/95 p-6 backdrop-blur-xl lg:hidden"
     >
       <ul className="flex flex-col gap-1">
         {site.nav.map((item) => (
@@ -338,18 +329,18 @@ function MobilePanel({
             <Link
               href={item.href}
               onClick={onAnchor(item.href)}
-              className="block py-3 font-display text-2xl tracking-tight text-paper hover:text-accent"
+              className="block py-3 font-display text-2xl tracking-tight text-ink hover:text-accent"
             >
               {item.label}
             </Link>
             {item.children && (
-              <ul className="mb-2 ml-1 flex flex-col gap-1 border-l border-white/10 pl-4">
+              <ul className="mb-2 ml-1 flex flex-col gap-1 border-l border-ink/10 pl-4">
                 {item.children.map((child) => (
                   <li key={child.label}>
                     <Link
                       href={child.href}
                       onClick={onAnchor(child.href)}
-                      className="block py-1.5 text-xs uppercase tracking-[0.12em] text-paper/60 hover:text-accent"
+                      className="block py-1.5 text-xs uppercase tracking-[0.12em] text-ink/75 hover:text-accent"
                     >
                       {child.label}
                     </Link>

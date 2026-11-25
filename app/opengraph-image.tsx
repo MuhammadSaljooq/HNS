@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
 
@@ -5,7 +7,10 @@ export const alt = `${site.fullName} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const logo = await readFile(join(process.cwd(), "public/brand/nhs-logo.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -15,28 +20,14 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0B0B0C",
-          color: "#EDEDEA",
+          background: "#f9fdfb",
+          color: "#101e1b",
           padding: "72px",
           fontFamily: "monospace",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", fontSize: 34 }}>
-          <span style={{ letterSpacing: "-0.03em" }}>{site.name.slice(0, -1)}</span>
-          <span style={{ color: "#c8f751", letterSpacing: "-0.03em" }}>
-            {site.name.slice(-1)}
-          </span>
-          <span
-            style={{
-              marginLeft: 24,
-              fontSize: 18,
-              letterSpacing: "0.2em",
-              color: "rgba(237,237,234,0.55)",
-            }}
-          >
-            [ {site.tagline.toUpperCase()} ]
-          </span>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoSrc} width={282} height={120} alt="" />
 
         <div
           style={{
@@ -49,7 +40,7 @@ export default function OpengraphImage() {
         >
           <span>Never miss</span>
           <span>
-            a follow-up<span style={{ color: "#c8f751" }}>.</span>
+            a follow-up<span style={{ color: "#006b53" }}>.</span>
           </span>
         </div>
 
@@ -57,7 +48,7 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             fontSize: 24,
-            color: "rgba(237,237,234,0.7)",
+            color: "#4e5b58",
             maxWidth: 900,
           }}
         >

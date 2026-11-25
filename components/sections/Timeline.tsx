@@ -48,7 +48,7 @@ export function Timeline() {
       </div>
       <div ref={ref} className="relative pl-10">
         {/* Rule + animated fill */}
-        <div className="absolute bottom-0 left-1.5 top-2 w-px bg-white/15">
+        <div className="absolute bottom-0 left-1.5 top-2 w-px bg-ink/15">
           <div
             ref={fillRef}
             className="absolute inset-0 origin-top scale-y-0 bg-accent"
@@ -58,7 +58,7 @@ export function Timeline() {
         <ol className="flex flex-col gap-12">
           {milestones.map((m) => (
             <li key={m.year} data-milestone className="relative">
-              <span className="absolute -left-[2.15rem] top-1.5 size-3 rounded-full border border-accent bg-ink" />
+              <span className="absolute -left-[2.15rem] top-1.5 size-3 rounded-full border border-accent bg-canvas" />
               <div className="flex flex-col gap-1">
                 <span className="font-display text-sm text-accent">
                   {m.year}
@@ -66,7 +66,7 @@ export function Timeline() {
                 <span className="font-display text-xl tracking-tight">
                   {m.title}
                 </span>
-                <span className="text-sm text-muted-dark">{m.detail}</span>
+                <span className="text-sm text-ink-muted">{m.detail}</span>
               </div>
             </li>
           ))}

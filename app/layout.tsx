@@ -67,7 +67,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0b0c",
+  themeColor: "#f9fdfb",
   colorScheme: "dark",
 };
 
@@ -81,6 +81,7 @@ const jsonLd = {
       name: site.fullName,
       alternateName: site.name,
       url: siteUrl,
+      logo: `${siteUrl}/brand/nhs-logo.png`,
       email: site.email,
       description: site.description,
     },
@@ -120,7 +121,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ScrollProgress />
           <ScrollRefresh />
           {/* Opaque, higher-z main so the footer is revealed from underneath. */}
-          <main className="relative z-10 bg-ink">{children}</main>
+          <main className="relative z-10 bg-canvas">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

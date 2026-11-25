@@ -84,7 +84,7 @@ export function ContactForm() {
         <h3 className="font-display text-3xl tracking-tight">
           Thanks — we&apos;ll be in touch.
         </h3>
-        <p className="max-w-md text-muted-dark">
+        <p className="max-w-md text-ink-muted">
           We read every message and reply within one business day. In the
           meantime, your follow-up is safe with us.
         </p>
@@ -141,7 +141,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-accent px-8 text-xs font-medium uppercase tracking-[0.15em] text-ink transition-colors disabled:opacity-60"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-accent px-8 text-xs font-medium uppercase tracking-[0.15em] text-on-accent transition-colors disabled:opacity-60"
       >
         {status === "pending" ? "Sending…" : "Send message"}
       </button>
@@ -152,7 +152,7 @@ export function ContactForm() {
 function baseInput(hasError?: boolean) {
   return cn(
     "peer w-full border-b bg-transparent py-3 text-base outline-none transition-colors placeholder-transparent",
-    hasError ? "border-red-400" : "border-white/20 focus:border-accent",
+    hasError ? "border-red-700" : "border-ink/20 focus:border-accent",
   );
 }
 
@@ -202,12 +202,12 @@ function Field({
       )}
       <label
         htmlFor={id}
-        className="pointer-events-none absolute left-0 top-3 text-base text-paper/45 transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs"
+        className="pointer-events-none absolute left-0 top-3 text-base text-ink-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs"
       >
         {label}
       </label>
       {error && (
-        <p id={`${id}-error`} className="mt-2 text-xs text-red-400">
+        <p id={`${id}-error`} className="mt-2 text-xs text-red-700">
           {error}
         </p>
       )}
@@ -233,7 +233,7 @@ function SelectField({
     <div className="relative">
       <label
         htmlFor={id}
-        className="mb-2 block text-xs uppercase tracking-[0.15em] text-paper/45"
+        className="mb-2 block text-xs uppercase tracking-[0.15em] text-ink-muted"
       >
         {label}
       </label>
@@ -244,8 +244,8 @@ function SelectField({
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "w-full border-b bg-transparent py-3 text-base outline-none transition-colors [&>option]:bg-ink-soft",
-          error ? "border-red-400" : "border-white/20 focus:border-accent",
+          "w-full border-b bg-transparent py-3 text-base outline-none transition-colors [&>option]:bg-surface",
+          error ? "border-red-700" : "border-ink/20 focus:border-accent",
         )}
       >
         <option value="">Select…</option>
@@ -256,7 +256,7 @@ function SelectField({
         ))}
       </select>
       {error && (
-        <p id={`${id}-error`} className="mt-2 text-xs text-red-400">
+        <p id={`${id}-error`} className="mt-2 text-xs text-red-700">
           {error}
         </p>
       )}

@@ -108,13 +108,13 @@ export function Preloader() {
   return (
     <div
       ref={rootRef}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-canvas"
       style={{ clipPath: "inset(0 0 0 0)" }}
       aria-hidden
     >
       <span
         ref={counterRef}
-        className="font-display leading-none tracking-tight text-paper"
+        className="font-display leading-none tracking-tight text-ink"
         style={{ fontSize: "clamp(4rem, 14vw, 11rem)" }}
       >
         000%
@@ -124,7 +124,7 @@ export function Preloader() {
         className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.25em]"
       >
         {PHASES.map((p) => (
-          <span key={p} style={{ opacity: 0.25 }} className="text-paper">
+          <span key={p} style={{ opacity: 0.25 }} className="text-ink">
             {p}
           </span>
         ))}

@@ -12,7 +12,7 @@ export function ProcessStrip() {
       <ol className="flex flex-col">
         {phases.map((phase, i) => (
           <Reveal key={phase.id} delay={i * 0.05} y={24}>
-            <li className="flex flex-col gap-3 border-t border-white/10 py-8 md:flex-row md:items-baseline md:gap-10">
+            <li className="flex flex-col gap-3 border-t border-ink/10 py-8 md:flex-row md:items-baseline md:gap-10">
               <span className="font-display text-sm text-accent">
                 {phase.index}
               </span>
@@ -22,7 +22,7 @@ export function ProcessStrip() {
               >
                 {phase.title}
               </span>
-              <span className="max-w-xl text-sm leading-relaxed text-muted-dark">
+              <span className="max-w-xl text-sm leading-relaxed text-ink-muted">
                 {phase.claim}
               </span>
             </li>

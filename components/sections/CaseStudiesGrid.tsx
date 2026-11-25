@@ -10,12 +10,12 @@ import { cn } from "@/lib/utils";
 
 /** Deterministic-ish accent tint per card, varied by index. */
 const tints = [
-  "from-ink-soft to-[#1b2410]",
-  "from-ink-soft to-[#101a24]",
-  "from-ink-soft to-[#241016]",
-  "from-ink-soft to-[#161024]",
-  "from-ink-soft to-[#102420]",
-  "from-ink-soft to-[#242010]",
+  "from-surface to-[#d6efe2]",
+  "from-surface to-[#dbe6f3]",
+  "from-surface to-[#f2dde3]",
+  "from-surface to-[#e5def3]",
+  "from-surface to-[#d5eeeb]",
+  "from-surface to-[#efe9d6]",
 ];
 
 export function CaseStudiesGrid() {
@@ -70,8 +70,8 @@ export function CaseStudiesGrid() {
             className={cn(
               "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors",
               filter === f
-                ? "border-accent bg-accent text-ink"
-                : "border-white/20 text-paper/70 hover:border-accent hover:text-accent",
+                ? "border-accent bg-accent text-on-accent"
+                : "border-ink/20 text-ink/75 hover:border-accent hover:text-accent",
             )}
           >
             {f}
@@ -91,7 +91,7 @@ export function CaseStudiesGrid() {
             className="group flex flex-col"
           >
             {/* Cover placeholder (4:3) */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink/10">
               <div
                 className={cn(
                   "absolute inset-0 bg-gradient-to-br transition-transform duration-700 ease-out group-hover:scale-[1.06]",
@@ -99,17 +99,17 @@ export function CaseStudiesGrid() {
                 )}
               />
               <div className="dot-grid absolute inset-0" />
-              <span className="absolute bottom-4 left-5 font-display text-7xl leading-none text-white/10">
+              <span className="absolute bottom-4 left-5 font-display text-7xl leading-none text-ink/10">
                 {study.client.charAt(0)}
               </span>
-              <span className="absolute right-4 top-4 rounded-full border border-white/15 bg-ink/40 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-paper/70 backdrop-blur">
+              <span className="absolute right-4 top-4 rounded-full border border-ink/15 bg-canvas/70 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-ink/75 backdrop-blur">
                 {study.metrics[0].value} {study.metrics[0].label}
               </span>
             </div>
 
             <div className="mt-5">
-              <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.15em] text-paper/45">
-                <span className="text-paper/70">{study.client}</span>
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.15em] text-ink-muted">
+                <span className="text-ink/75">{study.client}</span>
                 <span>
                   {study.industry} · {study.year}
                 </span>

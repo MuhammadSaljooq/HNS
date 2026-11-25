@@ -162,7 +162,7 @@ export function Hero() {
 
         <p
           data-hero-sub
-          className="mt-8 max-w-2xl text-base leading-relaxed text-muted-dark md:text-lg"
+          className="mt-8 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg"
         >
           {site.product} is the AI automation agent that schedules and sends
           your reminders — with a built-in CRM that keeps every contact, deal,
@@ -196,10 +196,10 @@ export function Hero() {
       >
         <div className="mx-auto flex max-w-7xl px-6">
           <div className="flex flex-col items-start gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-paper/40">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-ink-muted">
               scroll
             </span>
-            <span className="relative block h-10 w-px overflow-hidden bg-white/15">
+            <span className="relative block h-10 w-px overflow-hidden bg-ink/15">
               <span className="absolute left-0 top-0 h-3 w-px animate-[cue_1.8s_ease-in-out_infinite] bg-accent" />
             </span>
           </div>

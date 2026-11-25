@@ -90,7 +90,7 @@ export function CaseStudyView({
       >
         <div
           ref={coverInnerRef}
-          className="absolute inset-0 -top-[10%] h-[120%] bg-gradient-to-br from-ink-soft to-[#1b2410]"
+          className="absolute inset-0 -top-[10%] h-[120%] bg-gradient-to-br from-surface to-[#d6efe2]"
         />
         <div className="dot-grid absolute inset-0" />
         <div className="absolute inset-0 flex items-end">
@@ -113,32 +113,32 @@ export function CaseStudyView({
         <aside className="lg:sticky lg:top-32 lg:h-fit">
           <dl className="flex flex-col gap-6 text-sm">
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.15em] text-paper/40">
+              <dt className="text-[11px] uppercase tracking-[0.15em] text-ink-muted">
                 Client
               </dt>
               <dd className="mt-1">{study.client}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.15em] text-paper/40">
+              <dt className="text-[11px] uppercase tracking-[0.15em] text-ink-muted">
                 Industry
               </dt>
               <dd className="mt-1">{study.industry}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.15em] text-paper/40">
+              <dt className="text-[11px] uppercase tracking-[0.15em] text-ink-muted">
                 Year
               </dt>
               <dd className="mt-1">{study.year}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.15em] text-paper/40">
+              <dt className="text-[11px] uppercase tracking-[0.15em] text-ink-muted">
                 What we used
               </dt>
               <dd className="mt-2 flex flex-wrap gap-2">
                 {study.services.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-white/15 px-3 py-1 text-xs text-paper/70"
+                    className="rounded-full border border-ink/15 px-3 py-1 text-xs text-ink/75"
                   >
                     {s}
                   </span>
@@ -154,7 +154,7 @@ export function CaseStudyView({
           <h2 className="mt-14 font-display text-2xl tracking-tight">
             The challenge
           </h2>
-          <p className="mt-4 leading-relaxed text-muted-dark">
+          <p className="mt-4 leading-relaxed text-ink-muted">
             {study.client} was leaking revenue in the gaps between
             conversations — leads going cold, appointments missed, renewals
             slipping past their date. Follow-ups depended on someone remembering
@@ -164,7 +164,7 @@ export function CaseStudyView({
           <h2 className="mt-12 font-display text-2xl tracking-tight">
             What we did
           </h2>
-          <p className="mt-4 leading-relaxed text-muted-dark">
+          <p className="mt-4 leading-relaxed text-ink-muted">
             We rolled out NHS Autopilot on top of their existing tools. Every
             contact now flows into the CRM automatically, and the agent owns the
             timing and delivery of each reminder across the channels their
@@ -174,7 +174,7 @@ export function CaseStudyView({
           <h2 className="mt-12 font-display text-2xl tracking-tight">
             The outcome
           </h2>
-          <p className="mt-4 leading-relaxed text-muted-dark">
+          <p className="mt-4 leading-relaxed text-ink-muted">
             Within a quarter the numbers moved — and stayed moved, because the
             system runs whether anyone is watching it or not.
           </p>
@@ -182,7 +182,7 @@ export function CaseStudyView({
       </div>
 
       {/* Metrics band */}
-      <div ref={metricsRef} className="border-y border-white/10">
+      <div ref={metricsRef} className="border-y border-ink/10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-16 sm:grid-cols-3">
           {study.metrics.map((m) => (
             <div key={m.label} className="text-center">
@@ -194,7 +194,7 @@ export function CaseStudyView({
               >
                 {m.value}
               </div>
-              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-paper/50">
+              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-ink-muted">
                 {m.label}
               </div>
             </div>
@@ -205,10 +205,10 @@ export function CaseStudyView({
       {/* Next case study */}
       <Link
         href={`/case-studies/${next.slug}`}
-        className="group block border-b border-white/10"
+        className="group block border-b border-ink/10"
       >
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-20">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-paper/40">
+          <span className="text-[11px] uppercase tracking-[0.2em] text-ink-muted">
             Next case study
           </span>
           <span className="flex items-center gap-4 font-display leading-tight tracking-tight transition-colors group-hover:text-accent"

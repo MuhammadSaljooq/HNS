@@ -9,12 +9,12 @@ function ServiceRow({ service }: { service: Service }) {
   return (
     <a
       href={service.href}
-      className="group relative flex items-center justify-between overflow-hidden border-b border-white/10 py-4"
+      className="group relative flex items-center justify-between overflow-hidden border-b border-ink/10 py-4"
     >
       {/* Fill sweep from the left (CSS only). */}
       <span
         aria-hidden
-        className="absolute inset-0 origin-left scale-x-0 bg-white/5 transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
+        className="absolute inset-0 origin-left scale-x-0 bg-ink/[0.04] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
       />
       <span className="relative flex items-center gap-2 text-sm transition-transform duration-[400ms] ease-out group-hover:translate-x-2">
         {service.name}
@@ -62,12 +62,12 @@ export function ServicesGrid() {
                     "mb-2 flex items-center gap-2 border-t pt-4 text-xs uppercase tracking-[0.2em] " +
                     (group.flagship
                       ? "border-accent text-accent"
-                      : "border-white/20 text-[var(--fg-muted)]")
+                      : "border-ink/20 text-[var(--fg-muted)]")
                   }
                 >
                   {group.title}
                   {group.flagship && (
-                    <span className="rounded-full bg-accent px-1.5 py-0.5 text-[9px] text-ink">
+                    <span className="rounded-full bg-accent px-1.5 py-0.5 text-[9px] text-on-accent">
                       flagship
                     </span>
                   )}

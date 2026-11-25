@@ -105,7 +105,7 @@ function AccordionRow({
   }, [isOpen]);
 
   return (
-    <div id={id} className="scroll-mt-32 border-b border-white/10">
+    <div id={id} className="scroll-mt-32 border-b border-ink/10">
       <button
         type="button"
         aria-expanded={isOpen}
@@ -124,7 +124,7 @@ function AccordionRow({
             {title}
           </span>
           {flagship && (
-            <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] uppercase tracking-[0.15em] text-ink">
+            <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] uppercase tracking-[0.15em] text-on-accent">
               flagship
             </span>
           )}
@@ -132,7 +132,7 @@ function AccordionRow({
         <span
           aria-hidden
           className={cn(
-            "shrink-0 text-2xl text-paper/60 transition-transform duration-300",
+            "shrink-0 text-2xl text-ink/75 transition-transform duration-300",
             isOpen && "rotate-45 text-accent",
           )}
         >
@@ -148,13 +148,13 @@ function AccordionRow({
       >
         <div className="pb-10">
           {summary && (
-            <p className="mb-6 max-w-2xl text-sm text-muted-dark">{summary}</p>
+            <p className="mb-6 max-w-2xl text-sm text-ink-muted">{summary}</p>
           )}
           <div className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
             {services.map((s) => (
               <div
                 key={s.name}
-                className="flex flex-col gap-1 border-t border-white/10 pt-3"
+                className="flex flex-col gap-1 border-t border-ink/10 pt-3"
               >
                 <span className="flex items-center gap-2 text-sm">
                   {s.name}
@@ -165,7 +165,7 @@ function AccordionRow({
                     </span>
                   )}
                 </span>
-                <span className="text-xs text-paper/45">{s.blurb}</span>
+                <span className="text-xs text-ink-muted">{s.blurb}</span>
               </div>
             ))}
           </div>

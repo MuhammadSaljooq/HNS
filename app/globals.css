@@ -5,31 +5,38 @@
 /*  Font tokens point at the next/font CSS variables set in layout.tsx */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-ink: #0b0b0c; /* dark base */
-  --color-ink-soft: #141416; /* raised dark surface */
-  --color-paper: #ededea; /* light section base */
-  --color-paper-soft: #dededa;
-  --color-accent: #c8f751; /* acid lime — the one accent */
-
-  --color-muted-dark: rgba(237, 237, 234, 0.55); /* muted text on dark */
-  --color-muted-light: rgba(11, 11, 12, 0.55); /* muted text on light */
+  /* Bright, calm palette. Near-white canvas tinted toward the pine accent. */
+  --color-canvas: #f9fdfb; /* page base */
+  --color-surface: #eef5f3; /* alternating sections, cards, menus */
+  --color-line: #d8e0dd; /* hairlines */
+  --color-ink: #101e1b; /* text, 16.8:1 on canvas */
+  --color-ink-muted: #4e5b58; /* secondary text, 6.9:1 on canvas */
+  --color-accent: #006b53; /* pine — the one accent, 6.3:1 on canvas */
+  --color-accent-soft: #d5f3e8; /* tints, selection */
+  --color-on-accent: #ffffff; /* text on accent fills, 6.5:1 */
+  --color-wash: #e4f1ec; /* alternate section wash (was the dark sections) */
+  --color-deep: #072d25; /* CTA + footer: the one dark block */
+  --color-deep-soft: #0b3a30; /* footer, one step up from deep */
+  --color-on-deep: #eaf3f0; /* text on deep */
+  --color-accent-bright: #7fdcb8; /* accent used on deep */
 
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-display: var(--font-geist), var(--font-jetbrains), monospace;
 }
 
 /* Per-section theme variables, flipped by [data-theme] (see ThemeSection). */
-:root {
-  --fg: var(--color-paper);
-  --fg-muted: var(--color-muted-dark);
-}
-[data-theme="light"] {
-  --fg: var(--color-ink);
-  --fg-muted: var(--color-muted-light);
-}
+:root,
+[data-theme="light"],
 [data-theme="dark"] {
-  --fg: var(--color-paper);
-  --fg-muted: var(--color-muted-dark);
+  --fg: var(--color-ink);
+  --fg-muted: var(--color-ink-muted);
+}
+[data-theme="deep"] {
+  /* Inside the deep block the pine is too dark to read; swap to mint. */
+  --color-accent: var(--color-accent-bright);
+  --color-on-accent: var(--color-deep);
+  --fg: var(--color-on-deep);
+  --fg-muted: color-mix(in oklab, var(--color-on-deep) 70%, transparent);
 }
 
 /* ------------------------------------------------------------------ */
@@ -109,8 +116,8 @@ html {
 }
 
 body {
-  background-color: var(--color-ink);
-  color: var(--color-paper);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-mono);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -127,17 +134,17 @@ p {
   text-wrap: pretty;
 }
 
-/* Custom scrollbar — thin, dark track, accent thumb. */
+/* Custom scrollbar — thin, light track, accent thumb. */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ink);
+  background: var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(237, 237, 234, 0.18);
-  border: 2px solid var(--color-ink);
+  background: rgba(16, 30, 27, 0.2);
+  border: 2px solid var(--color-canvas);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -146,16 +153,16 @@ p {
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(237, 237, 234, 0.25) var(--color-ink);
+  scrollbar-color: rgba(16, 30, 27, 0.25) var(--color-canvas);
 }
 
 /* Selection colors use the accent. */
 ::selection {
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
   color: var(--color-ink);
 }
 ::-moz-selection {
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
   color: var(--color-ink);
 }
 

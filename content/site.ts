@@ -13,7 +13,7 @@ export const site = {
   /** Compact wordmark. The last two characters render in the accent color. */
   name: "NHS",
   /** Expanded brand name, used in metadata and the footer. */
-  fullName: "Next Higher Solution",
+  fullName: "Next Higher Solutions",
   /** Flagship product. */
   product: "NHS Autopilot",
   tagline: "Follow-ups on autopilot",
