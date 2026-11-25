@@ -7,7 +7,7 @@ import { testimonials, type Testimonial } from "@/content/testimonials";
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-1 text-accent" aria-label={`${rating} out of 5`}>
+    <div className="flex gap-1 text-accent-ink" aria-label={`${rating} out of 5`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span key={i} aria-hidden>
           {i < rating ? "★" : "☆"}
@@ -93,7 +93,7 @@ export function Testimonials() {
                 aria-label="Previous"
                 onClick={() => scrollByCard(-1)}
                 disabled={atStart}
-                className="flex size-11 items-center justify-center rounded-full border border-ink/20 transition-colors hover:border-accent hover:text-accent disabled:opacity-30"
+                className="flex size-11 items-center justify-center rounded-full border border-ink/20 transition-colors hover:border-accent-ink hover:text-accent-ink disabled:opacity-30"
               >
                 ←
               </button>
@@ -102,7 +102,7 @@ export function Testimonials() {
                 aria-label="Next"
                 onClick={() => scrollByCard(1)}
                 disabled={atEnd}
-                className="flex size-11 items-center justify-center rounded-full border border-ink/20 transition-colors hover:border-accent hover:text-accent disabled:opacity-30"
+                className="flex size-11 items-center justify-center rounded-full border border-ink/20 transition-colors hover:border-accent-ink hover:text-accent-ink disabled:opacity-30"
               >
                 →
               </button>

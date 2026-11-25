@@ -5,20 +5,21 @@
 /*  Font tokens point at the next/font CSS variables set in layout.tsx */
 /* ------------------------------------------------------------------ */
 @theme {
-  /* Bright, calm palette. Near-white canvas tinted toward the pine accent. */
-  --color-canvas: #f9fdfb; /* page base */
-  --color-surface: #eef5f3; /* alternating sections, cards, menus */
-  --color-line: #d8e0dd; /* hairlines */
-  --color-ink: #101e1b; /* text, 16.8:1 on canvas */
-  --color-ink-muted: #4e5b58; /* secondary text, 6.9:1 on canvas */
-  --color-accent: #006b53; /* pine — the one accent, 6.3:1 on canvas */
-  --color-accent-soft: #d5f3e8; /* tints, selection */
-  --color-on-accent: #ffffff; /* text on accent fills, 6.5:1 */
-  --color-wash: #e4f1ec; /* alternate section wash (was the dark sections) */
-  --color-deep: #072d25; /* CTA + footer: the one dark block */
-  --color-deep-soft: #0b3a30; /* footer, one step up from deep */
-  --color-on-deep: #eaf3f0; /* text on deep */
-  --color-accent-bright: #7fdcb8; /* accent used on deep */
+  /* Lime in daylight: white canvas, near-black ink, acid lime as a FILL. */
+  --color-canvas: #fcfdfa; /* page base */
+  --color-surface: #f1f3ec; /* alternate light sections, menus, cards */
+  --color-line: #e0e3d8; /* hairlines */
+  --color-ink: #0b0b0c; /* text — 19.3:1 on canvas */
+  --color-ink-soft: #141416; /* footer, stats pill */
+  --color-ink-muted: #55574f; /* secondary text — 7.2:1 on canvas */
+  --color-paper: #ededea; /* text on ink */
+  --color-lime: #c8f751; /* the brand colour — never remapped; for drenched sections */
+
+  /* Accent roles. Remapped per [data-theme] below so components just say
+     bg-accent / text-accent-ink and stay legible on any surface. */
+  --color-accent: #c8f751; /* fills: buttons, badges, highlighter */
+  --color-accent-ink: #4a6b00; /* accent as text/lines on light — 6.1:1 */
+  --color-on-accent: #0b0b0c; /* text on accent fills — 15.8:1 */
 
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-display: var(--font-geist), var(--font-jetbrains), monospace;
@@ -31,12 +32,21 @@
   --fg: var(--color-ink);
   --fg-muted: var(--color-ink-muted);
 }
-[data-theme="deep"] {
-  /* Inside the deep block the pine is too dark to read; swap to mint. */
-  --color-accent: var(--color-accent-bright);
-  --color-on-accent: var(--color-deep);
-  --fg: var(--color-on-deep);
-  --fg-muted: color-mix(in oklab, var(--color-on-deep) 70%, transparent);
+/* Drenched lime sections: ink becomes the accent. */
+[data-theme="lime"] {
+  --color-accent: var(--color-ink);
+  --color-accent-ink: var(--color-ink);
+  --color-on-accent: var(--color-lime);
+  --fg: var(--color-ink);
+  --fg-muted: #3d4710;
+}
+/* Ink blocks (footer, stats pill): lime is readable as text here. */
+[data-theme="ink"] {
+  --color-accent: var(--color-lime);
+  --color-accent-ink: var(--color-lime);
+  --color-on-accent: var(--color-ink);
+  --fg: var(--color-paper);
+  --fg-muted: rgba(237, 237, 234, 0.62);
 }
 
 /* ------------------------------------------------------------------ */
@@ -143,7 +153,7 @@ p {
   background: var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(16, 30, 27, 0.2);
+  background: rgba(11, 11, 12, 0.2);
   border: 2px solid var(--color-canvas);
   border-radius: 999px;
 }
@@ -153,22 +163,22 @@ p {
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(16, 30, 27, 0.25) var(--color-canvas);
+  scrollbar-color: rgba(11, 11, 12, 0.25) var(--color-canvas);
 }
 
-/* Selection colors use the accent. */
+/* Selection is a lime highlighter. */
 ::selection {
-  background-color: var(--color-accent-soft);
+  background-color: var(--color-lime);
   color: var(--color-ink);
 }
 ::-moz-selection {
-  background-color: var(--color-accent-soft);
+  background-color: var(--color-lime);
   color: var(--color-ink);
 }
 
 /* Visible focus ring everywhere — accent, never removed. */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-ink);
   outline-offset: 2px;
 }
 

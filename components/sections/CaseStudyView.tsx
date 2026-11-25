@@ -189,7 +189,7 @@ export function CaseStudyView({
               <div
                 data-num
                 data-raw={m.value}
-                className="font-display tracking-tight text-accent"
+                className="font-display tracking-tight text-accent-ink"
                 style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
               >
                 {m.value}
@@ -211,11 +211,11 @@ export function CaseStudyView({
           <span className="text-[11px] uppercase tracking-[0.2em] text-ink-muted">
             Next case study
           </span>
-          <span className="flex items-center gap-4 font-display leading-tight tracking-tight transition-colors group-hover:text-accent"
+          <span className="flex items-center gap-4 font-display leading-tight tracking-tight transition-colors group-hover:text-accent-ink"
             style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
           >
             {next.headline}
-            <span className="text-accent transition-transform group-hover:translate-x-2">
+            <span className="text-accent-ink transition-transform group-hover:translate-x-2">
               →
             </span>
           </span>

@@ -6,7 +6,7 @@ import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import { cn } from "@/lib/utils";
 
 export type ThemeSectionProps = {
-  theme: "dark" | "light";
+  theme: "dark" | "light" | "lime";
   children: ReactNode;
   className?: string;
   id?: string;
@@ -71,14 +71,16 @@ export function ThemeSection({
         aria-hidden
         className={cn(
           "absolute inset-0 -z-10",
-          theme === "light" ? "bg-surface" : "bg-wash",
+          theme === "light" && "bg-surface",
+          theme === "dark" && "bg-canvas",
+          theme === "lime" && "bg-lime",
         )}
         style={{ clipPath: "ellipse(75% 0% at 50% 100%)" }}
       >
         <div
           className={cn(
             "dot-grid absolute inset-0",
-            theme === "light" && "!opacity-[0.04]",
+            theme !== "dark" && "!opacity-[0.04]",
           )}
         />
       </div>

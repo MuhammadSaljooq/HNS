@@ -19,7 +19,7 @@ export function Eyebrow({ children, dot = true, className }: EyebrowProps) {
       {dot && (
         <span
           aria-hidden
-          className="inline-block size-1.5 rounded-full bg-accent"
+          className="inline-block size-1.5 rounded-full bg-accent-ink"
         />
       )}
       <span>[ {children} ]</span>

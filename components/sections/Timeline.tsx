@@ -51,16 +51,16 @@ export function Timeline() {
         <div className="absolute bottom-0 left-1.5 top-2 w-px bg-ink/15">
           <div
             ref={fillRef}
-            className="absolute inset-0 origin-top scale-y-0 bg-accent"
+            className="absolute inset-0 origin-top scale-y-0 bg-accent-ink"
           />
         </div>
 
         <ol className="flex flex-col gap-12">
           {milestones.map((m) => (
             <li key={m.year} data-milestone className="relative">
-              <span className="absolute -left-[2.15rem] top-1.5 size-3 rounded-full border border-accent bg-canvas" />
+              <span className="absolute -left-[2.15rem] top-1.5 size-3 rounded-full border border-accent-ink bg-canvas" />
               <div className="flex flex-col gap-1">
-                <span className="font-display text-sm text-accent">
+                <span className="font-display text-sm text-accent-ink">
                   {m.year}
                 </span>
                 <span className="font-display text-xl tracking-tight">

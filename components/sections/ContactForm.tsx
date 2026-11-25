@@ -80,7 +80,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div ref={successRef} className="flex flex-col gap-4">
-        <span className="text-accent">✦ Message sent</span>
+        <span className="text-accent-ink">✦ Message sent</span>
         <h3 className="font-display text-3xl tracking-tight">
           Thanks — we&apos;ll be in touch.
         </h3>
@@ -152,7 +152,7 @@ export function ContactForm() {
 function baseInput(hasError?: boolean) {
   return cn(
     "peer w-full border-b bg-transparent py-3 text-base outline-none transition-colors placeholder-transparent",
-    hasError ? "border-red-700" : "border-ink/20 focus:border-accent",
+    hasError ? "border-red-700" : "border-ink/20 focus:border-accent-ink",
   );
 }
 
@@ -202,7 +202,7 @@ function Field({
       )}
       <label
         htmlFor={id}
-        className="pointer-events-none absolute left-0 top-3 text-base text-ink-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs"
+        className="pointer-events-none absolute left-0 top-3 text-base text-ink-muted transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent-ink peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs"
       >
         {label}
       </label>
@@ -245,7 +245,7 @@ function SelectField({
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
           "w-full border-b bg-transparent py-3 text-base outline-none transition-colors [&>option]:bg-surface",
-          error ? "border-red-700" : "border-ink/20 focus:border-accent",
+          error ? "border-red-700" : "border-ink/20 focus:border-accent-ink",
         )}
       >
         <option value="">Select…</option>

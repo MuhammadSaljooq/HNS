@@ -172,8 +172,8 @@ export function MethodHorizontal() {
   return (
     <section
       ref={sectionRef}
-      data-theme="light"
-      className="relative bg-surface text-[var(--fg)]"
+      data-theme="lime"
+      className="relative bg-lime text-[var(--fg)]"
     >
       <div className="dot-grid pointer-events-none absolute inset-0 !opacity-[0.04]" />
       <div
@@ -214,7 +214,7 @@ export function MethodHorizontal() {
                   style={{ fontSize: "clamp(3rem, 9vw, 8rem)" }}
                 >
                   {phase.title}
-                  <span className="text-accent">.</span>
+                  <span className="text-accent-ink">.</span>
                 </h3>
                 <p
                   data-panel-anim
@@ -222,7 +222,7 @@ export function MethodHorizontal() {
                 >
                   {phase.claim}
                 </p>
-                <div className="my-8 h-px w-24 bg-ink/20" />
+                <div className="my-8 h-px w-24 bg-ink/30" />
                 <ul className="flex flex-col gap-2">
                   {phase.points.map((pt) => (
                     <li
@@ -231,7 +231,7 @@ export function MethodHorizontal() {
                       data-panel-anim
                       className="text-sm lowercase text-[var(--fg-muted)] md:text-base"
                     >
-                      <span className="text-accent">—</span> {pt}
+                      <span className="text-accent-ink">—</span> {pt}
                     </li>
                   ))}
                 </ul>

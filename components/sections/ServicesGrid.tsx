@@ -19,19 +19,19 @@ function ServiceRow({ service }: { service: Service }) {
       <span className="relative flex items-center gap-2 text-sm transition-transform duration-[400ms] ease-out group-hover:translate-x-2">
         {service.name}
         {service.flag === "ai" && (
-          <span className="text-accent" title="AI" aria-label="AI">
+          <span className="text-accent-ink" title="AI" aria-label="AI">
             ✦
           </span>
         )}
         {service.flag === "popular" && (
-          <span className="rounded-full border border-accent/50 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.15em] text-accent">
+          <span className="rounded-full border border-accent-ink/50 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.15em] text-accent-ink">
             popular
           </span>
         )}
       </span>
       <span
         aria-hidden
-        className="relative text-[var(--fg-muted)] transition-transform duration-[400ms] ease-out group-hover:rotate-45 group-hover:text-accent"
+        className="relative text-[var(--fg-muted)] transition-transform duration-[400ms] ease-out group-hover:rotate-45 group-hover:text-accent-ink"
       >
         ↗
       </span>
@@ -61,7 +61,7 @@ export function ServicesGrid() {
                   className={
                     "mb-2 flex items-center gap-2 border-t pt-4 text-xs uppercase tracking-[0.2em] " +
                     (group.flagship
-                      ? "border-accent text-accent"
+                      ? "border-accent-ink text-accent-ink"
                       : "border-ink/20 text-[var(--fg-muted)]")
                   }
                 >

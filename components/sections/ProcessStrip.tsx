@@ -13,7 +13,7 @@ export function ProcessStrip() {
         {phases.map((phase, i) => (
           <Reveal key={phase.id} delay={i * 0.05} y={24}>
             <li className="flex flex-col gap-3 border-t border-ink/10 py-8 md:flex-row md:items-baseline md:gap-10">
-              <span className="font-display text-sm text-accent">
+              <span className="font-display text-sm text-accent-ink">
                 {phase.index}
               </span>
               <span

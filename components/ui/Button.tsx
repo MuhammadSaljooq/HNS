@@ -42,9 +42,9 @@ const variants: Record<Variant, string> = {
   ),
   ghost: cn(
     sizing,
-    "border border-ink/20 text-[var(--fg)] hover:border-accent hover:text-accent",
+    "border border-ink/20 text-[var(--fg)] hover:border-accent-ink hover:text-accent-ink",
   ),
-  link: "text-[var(--fg)] underline underline-offset-4 decoration-1 hover:decoration-accent hover:underline-offset-8 transition-all",
+  link: "text-[var(--fg)] underline underline-offset-4 decoration-1 hover:decoration-accent-ink hover:underline-offset-8 transition-all",
 };
 
 export function Button(props: ButtonProps) {

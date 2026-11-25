@@ -59,6 +59,13 @@ export function Hero() {
           "[data-hero-cue]",
           { opacity: 0, duration: 0.6 },
           "-=0.2",
+        )
+        // Highlighter sweeps in as "follow-up" finishes typing (absolute time).
+        .fromTo(
+          "[data-hero-mark]",
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.9, ease: "expo.out" },
+          0.75,
         );
     }, rootRef);
 
@@ -143,8 +150,25 @@ export function Hero() {
               stagger={0.03}
               delay={0.15}
             >
-              a follow-up
-            </SplitText>
+              a
+            </SplitText>{" "}
+            {/* Lime highlighter swept behind the key word. */}
+            <span className="relative isolate inline-block">
+              <span
+                data-hero-mark
+                aria-hidden
+                className="absolute -inset-x-[0.06em] bottom-[0.02em] top-[0.2em] -z-10 origin-left bg-lime"
+              />
+              <SplitText
+                by="char"
+                trigger="manual"
+                play={play}
+                stagger={0.03}
+                delay={0.2}
+              >
+                follow-up
+              </SplitText>
+            </span>
           </span>
           <span className="block overflow-hidden lg:whitespace-nowrap">
             <SplitText
@@ -156,7 +180,7 @@ export function Hero() {
             >
               again
             </SplitText>
-            <span className="text-accent">.</span>
+            <span className="text-accent-ink">.</span>
           </span>
         </h1>
 
@@ -200,7 +224,7 @@ export function Hero() {
               scroll
             </span>
             <span className="relative block h-10 w-px overflow-hidden bg-ink/15">
-              <span className="absolute left-0 top-0 h-3 w-px animate-[cue_1.8s_ease-in-out_infinite] bg-accent" />
+              <span className="absolute left-0 top-0 h-3 w-px animate-[cue_1.8s_ease-in-out_infinite] bg-accent-ink" />
             </span>
           </div>
         </div>

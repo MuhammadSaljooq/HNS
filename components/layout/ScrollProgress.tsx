@@ -76,7 +76,7 @@ export function ScrollProgress() {
       >
         <div
           ref={tickRef}
-          className="absolute left-1/2 top-0 h-4 w-0.5 -translate-x-1/2 bg-accent"
+          className="absolute left-1/2 top-0 h-4 w-0.5 -translate-x-1/2 bg-accent-ink"
         />
       </div>
       <span

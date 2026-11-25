@@ -117,7 +117,7 @@ function AccordionRow({
           <span
             className={cn(
               "font-display tracking-tight",
-              flagship && "text-accent",
+              flagship && "text-accent-ink",
             )}
             style={{ fontSize: "clamp(1.5rem, 4vw, 2.75rem)" }}
           >
@@ -133,7 +133,7 @@ function AccordionRow({
           aria-hidden
           className={cn(
             "shrink-0 text-2xl text-ink/75 transition-transform duration-300",
-            isOpen && "rotate-45 text-accent",
+            isOpen && "rotate-45 text-accent-ink",
           )}
         >
           +
@@ -158,9 +158,9 @@ function AccordionRow({
               >
                 <span className="flex items-center gap-2 text-sm">
                   {s.name}
-                  {s.flag === "ai" && <span className="text-accent">✦</span>}
+                  {s.flag === "ai" && <span className="text-accent-ink">✦</span>}
                   {s.flag === "popular" && (
-                    <span className="rounded-full border border-accent/50 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.15em] text-accent">
+                    <span className="rounded-full border border-accent-ink/50 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.15em] text-accent-ink">
                       popular
                     </span>
                   )}

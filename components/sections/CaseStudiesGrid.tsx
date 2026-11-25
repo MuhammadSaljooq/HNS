@@ -70,8 +70,8 @@ export function CaseStudiesGrid() {
             className={cn(
               "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors",
               filter === f
-                ? "border-accent bg-accent text-on-accent"
-                : "border-ink/20 text-ink/75 hover:border-accent hover:text-accent",
+                ? "border-accent-ink bg-accent text-on-accent"
+                : "border-ink/20 text-ink/75 hover:border-accent-ink hover:text-accent-ink",
             )}
           >
             {f}
@@ -114,7 +114,7 @@ export function CaseStudiesGrid() {
                   {study.industry} · {study.year}
                 </span>
               </div>
-              <h3 className="mt-3 font-display text-lg leading-snug tracking-tight transition-colors group-hover:text-accent">
+              <h3 className="mt-3 font-display text-lg leading-snug tracking-tight transition-colors group-hover:text-accent-ink">
                 {study.headline}
               </h3>
             </div>

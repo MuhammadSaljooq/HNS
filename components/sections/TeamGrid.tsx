@@ -8,7 +8,7 @@ function Portrait({ initials }: { initials: string }) {
     <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-ink/10 bg-surface grayscale transition-all duration-500 group-hover:grayscale-0">
       <div className="absolute inset-0 bg-gradient-to-br from-ink/[0.03] to-transparent" />
       <div className="dot-grid absolute inset-0" />
-      <span className="absolute inset-0 flex items-center justify-center font-display text-6xl text-ink/10 transition-colors duration-500 group-hover:text-accent/30">
+      <span className="absolute inset-0 flex items-center justify-center font-display text-6xl text-ink/10 transition-colors duration-500 group-hover:text-accent-ink/30">
         {initials}
       </span>
     </div>

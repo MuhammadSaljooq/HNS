@@ -27,7 +27,7 @@ export default function ContactPage() {
           <ContactBlock label="Email">
             <a
               href={`mailto:${site.email}`}
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-accent-ink"
             >
               {site.email}
             </a>
@@ -35,7 +35,7 @@ export default function ContactPage() {
           <ContactBlock label="Phone">
             <a
               href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-accent-ink"
             >
               {site.phone}
             </a>
@@ -45,7 +45,7 @@ export default function ContactPage() {
               href={`https://wa.me/${site.whatsapp.replace(/[^\d]/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-accent-ink"
             >
               Message us
             </a>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-accent"
+                  className="transition-colors hover:text-accent-ink"
                 >
                   {s.label}
                 </a>

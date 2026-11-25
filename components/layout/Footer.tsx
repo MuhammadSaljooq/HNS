@@ -44,12 +44,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="sticky bottom-0 z-0 overflow-hidden bg-deep-soft text-on-deep" data-theme="deep">
+    <footer className="sticky bottom-0 z-0 overflow-hidden bg-ink-soft text-paper" data-theme="ink">
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-24">
         {/* Oversized wordmark flourish */}
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 select-none text-center font-display font-bold leading-none text-on-deep/[0.05]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 select-none text-center font-display font-bold leading-none text-paper/[0.05]"
           style={{ fontSize: "18vw" }}
         >
           {site.name}
@@ -72,17 +72,17 @@ export function Footer() {
                 Solutions
               </span>
             </span>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-deep/50">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/50">
               {site.fullName}. {site.tagline}.
             </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.15em] text-on-deep/60">
+            <p className="mt-4 text-xs uppercase tracking-[0.15em] text-paper/60">
               {site.location}
             </p>
           </div>
 
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-on-deep/60">
+              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-paper/60">
                 {col.title}
               </h3>
               <ul className="flex flex-col gap-2">
@@ -90,7 +90,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-sm text-on-deep/70 transition-colors hover:text-accent-bright"
+                      className="text-sm text-paper/70 transition-colors hover:text-accent-ink"
                     >
                       {l.label}
                     </Link>
@@ -102,8 +102,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="relative mt-20 flex flex-col items-center justify-between gap-6 border-t border-on-deep/15 pt-8 md:flex-row">
-          <p className="text-xs text-on-deep/60">
+        <div className="relative mt-20 flex flex-col items-center justify-between gap-6 border-t border-paper/15 pt-8 md:flex-row">
+          <p className="text-xs text-paper/60">
             © {new Date().getFullYear()} {site.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -113,7 +113,7 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-[0.15em] text-on-deep/60 transition-colors hover:text-accent-bright"
+                className="text-xs uppercase tracking-[0.15em] text-paper/60 transition-colors hover:text-accent-ink"
               >
                 {s.label}
               </a>
@@ -121,7 +121,7 @@ export function Footer() {
             <button
               type="button"
               onClick={toTop}
-              className="text-xs uppercase tracking-[0.15em] text-on-deep/60 transition-colors hover:text-accent-bright"
+              className="text-xs uppercase tracking-[0.15em] text-paper/60 transition-colors hover:text-accent-ink"
             >
               ↑ Back to top
             </button>

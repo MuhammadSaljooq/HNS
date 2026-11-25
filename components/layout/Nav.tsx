@@ -246,7 +246,7 @@ function NavLink({
       <Link
         href={item.href}
         onClick={onAnchor(item.href)}
-        className="text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent"
+        className="text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent-ink"
       >
         {item.label}
       </Link>
@@ -264,7 +264,7 @@ function NavLink({
         aria-expanded={open}
         aria-controls={`dropdown-${item.label}`}
         onClick={onToggle}
-        className="flex items-center gap-1 text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent"
+        className="flex items-center gap-1 text-xs uppercase tracking-[0.15em] text-ink/75 transition-colors hover:text-accent-ink"
       >
         {item.label}
         <span aria-hidden className={cn("transition-transform", open && "rotate-180")}>
@@ -286,7 +286,7 @@ function NavLink({
                 key={child.label}
                 href={child.href}
                 onClick={onAnchor(child.href)}
-                className="block rounded-xl px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink/75 transition-colors hover:bg-ink/[0.04] hover:text-accent"
+                className="block rounded-xl px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink/75 transition-colors hover:bg-ink/[0.04] hover:text-accent-ink"
               >
                 {child.label}
               </Link>
@@ -329,7 +329,7 @@ function MobilePanel({
             <Link
               href={item.href}
               onClick={onAnchor(item.href)}
-              className="block py-3 font-display text-2xl tracking-tight text-ink hover:text-accent"
+              className="block py-3 font-display text-2xl tracking-tight text-ink hover:text-accent-ink"
             >
               {item.label}
             </Link>
@@ -340,7 +340,7 @@ function MobilePanel({
                     <Link
                       href={child.href}
                       onClick={onAnchor(child.href)}
-                      className="block py-1.5 text-xs uppercase tracking-[0.12em] text-ink/75 hover:text-accent"
+                      className="block py-1.5 text-xs uppercase tracking-[0.12em] text-ink/75 hover:text-accent-ink"
                     >
                       {child.label}
                     </Link>

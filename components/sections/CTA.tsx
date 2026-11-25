@@ -35,15 +35,15 @@ export function CTA() {
   return (
     <section
       ref={ref}
-      data-theme="deep"
-      className="relative z-10 flex min-h-screen shadow-[0_2px_0_0_var(--color-deep)] flex-col items-center justify-center overflow-hidden bg-deep px-6 text-center text-on-deep"
+      data-theme="lime"
+      className="relative z-10 flex min-h-screen shadow-[0_2px_0_0_var(--color-lime)] flex-col items-center justify-center overflow-hidden bg-lime px-6 text-center text-ink"
     >
       <div className="dot-grid pointer-events-none absolute inset-0" />
       {/* Accent radial glow */}
       <div
         ref={glowRef}
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-bright opacity-[0.14] blur-[120px] mix-blend-screen"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-canvas opacity-[0.45] blur-[120px]"
       />
 
       <div className="relative z-10 flex flex-col items-center">
@@ -59,20 +59,20 @@ export function CTA() {
           <SplitText by="char" stagger={0.02} delay={0.2}>
             chasing people
           </SplitText>
-          <span className="text-accent-bright">?</span>
+          <span className="text-accent-ink">?</span>
         </h2>
 
         <div className="mt-12 flex flex-col items-center gap-8">
           <Button
             href="/contact"
             variant="primary"
-            className="bg-accent-bright text-deep before:bg-on-deep hover:text-deep"
+            className="before:bg-canvas hover:text-ink"
           >
             Start free
           </Button>
           <MagneticLink
             href={`mailto:${site.email}`}
-            className="font-display text-xl tracking-tight text-on-deep/80 transition-colors hover:text-accent-bright md:text-3xl"
+            className="font-display text-xl tracking-tight text-ink/80 underline decoration-ink/30 decoration-1 underline-offset-8 transition-colors hover:text-ink hover:decoration-ink md:text-3xl"
           >
             {site.email}
           </MagneticLink>

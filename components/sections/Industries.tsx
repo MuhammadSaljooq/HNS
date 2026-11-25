@@ -50,7 +50,7 @@ export function Industries() {
             <span
               key={tag}
               data-pill
-              className="cursor-default rounded-full border border-ink/20 px-5 py-2.5 text-sm transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-on-accent"
+              className="cursor-default rounded-full border border-ink/20 px-5 py-2.5 text-sm transition-colors duration-300 hover:border-accent-ink hover:bg-accent hover:text-on-accent"
             >
               {tag}
             </span>

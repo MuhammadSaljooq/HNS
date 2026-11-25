@@ -26,7 +26,7 @@ function Row({
           </span>
           <span
             aria-hidden
-            className="text-accent"
+            className="text-accent-ink"
             style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
           >
             ✦

@@ -35,7 +35,7 @@ export function MethodIntro() {
   }, []);
 
   return (
-    <ThemeSection theme="light" id="method">
+    <ThemeSection theme="lime" id="method">
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-40 text-center">
         <Eyebrow>HOW IT WORKS</Eyebrow>
         <h2
