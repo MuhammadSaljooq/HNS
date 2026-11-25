@@ -81,7 +81,7 @@ const jsonLd = {
       name: site.fullName,
       alternateName: site.name,
       url: siteUrl,
-      logo: `${siteUrl}/brand/nhs-logo.png`,
+      logo: `${siteUrl}/brand/nhs-logo-metal.png`,
       email: site.email,
       description: site.description,
     },

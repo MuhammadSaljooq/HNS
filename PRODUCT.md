@@ -25,7 +25,7 @@ Confident, trustworthy, precise, engineered. "It just handles it." Plenty of air
 1. **Reassure, don't dazzle.** Every section should lower the visitor's perceived risk of handing over follow-ups.
 2. **Motion explains the flow.** The scroll-driven animation (capture → organize → automate → remind → grow) is the product story; keep it, don't add decoration on top.
 3. **Contrast is the character.** White and near-black carry the page; the bold sections are black, not coloured. Steel (on white) and silver (on black) are the only accents, used for small details.
-4. **The palette is independent of the logo.** Ink, steel and silver are the site's colours. The logo's blue and orange stay in the logo.
+4. **The palette is independent of the logo.** Ink, steel and silver are the site's colours, and the logo is rendered in the same graphite, steel and silver.
 
 ## Accessibility & Inclusion
 WCAG 2.2 AA: body text ≥ 4.5:1, large text ≥ 3:1. All animation honours `prefers-reduced-motion` (Lenis disabled, wipes and reveals instant). Visible focus rings everywhere.

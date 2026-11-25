@@ -31,9 +31,12 @@ Rule of thumb: `bg-accent` for fills, `text-accent-ink` / `border-accent-ink` / 
 - `text-wrap: balance` on h1–h3; `text-wrap: pretty` on prose.
 
 ## Logo
-- `public/brand/nhs-logo.webp|png`: full lockup, light backgrounds only (its "SOLUTIONS" lettering is navy). Used in the nav.
-- `public/brand/nhs-mark.webp`: NH circle mark. Used in the footer (on ink) and for the favicon (`app/icon.png`) and Apple icon (`app/apple-icon.png`).
-- The source is a raster export from Canva. Replace with a true vector SVG when the designer supplies one.
+The logo is recoloured to match the palette: the original blue parts become graphite and the orange parts become steel, with the original shading kept so it reads as polished metal.
+- `public/brand/nhs-logo-metal.webp|png`: full lockup in graphite and steel, for light backgrounds. Used in the nav, the OG image and the JSON-LD.
+- `public/brand/nhs-mark-silver.webp`: NH circle mark in silver, for ink backgrounds. Used in the footer.
+- `app/icon.png` and `app/apple-icon.png`: the graphite and steel mark.
+- The colour originals (blue and orange) are not used on the site. The source is a raster export from Canva; replace it with a true vector SVG when the designer supplies one.
+- When a logo file changes, give it a new filename, because the image optimiser caches by URL.
 
 ## Motion
 - Hero: a brushed-steel underline sweeps under "follow-up" (GSAP scaleX, expo.out, at 0.75s into the entrance timeline).

@@ -16,7 +16,7 @@ function Wordmark() {
   return (
     <Link href="/" className="flex shrink-0 items-center" aria-label={`${site.fullName} — home`}>
       <Image
-        src="/brand/nhs-logo.webp"
+        src="/brand/nhs-logo-metal.webp"
         alt={site.fullName}
         width={960}
         height={409}

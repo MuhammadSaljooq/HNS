@@ -59,7 +59,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <span className="flex items-center gap-3">
               <Image
-                src="/brand/nhs-mark.webp"
+                src="/brand/nhs-mark-silver.webp"
                 alt=""
                 width={192}
                 height={192}
